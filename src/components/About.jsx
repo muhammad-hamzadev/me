@@ -15,16 +15,20 @@ const About = () => {
                 >
                     {/* Photo */}
                     <motion.div variants={fadeInUp} className="flex justify-center">
-                        <div className="relative w-full max-w-[350px]">
+                        <div className="relative w-full max-w-[420px]">
                             {/* Decorative Background Shadows */}
-                            <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] rotate-6 shadow-lg scale-100 translate-x-2 translate-y-2"></div>
-                            <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] -rotate-6 shadow-lg scale-100 -translate-x-2 -translate-y-2"></div>
+                            <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] rotate-6 shadow-md scale-100 translate-x-2 translate-y-2"></div>
+                            <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] -rotate-6 shadow-md scale-100 -translate-x-2 -translate-y-2"></div>
                             <img
                                 src={heroPhoto}
                                 alt="Hamza Ali - Software Engineer"
                                 loading="lazy"
                                 decoding="async"
-                                className="relative z-10 w-full h-[390px] sm:h-[480px] object-cover object-top sm:object-center rounded-[2rem] shadow-2xl border-2 border-brand-500/20"
+                                className="relative z-10 w-full h-auto rounded-[2rem] shadow-xl border-2 border-brand-500/20 transform-gpu"
+                                style={{
+                                    imageRendering: '-webkit-optimize-contrast',
+                                    backfaceVisibility: 'hidden'
+                                }}
                             />
                         </div>
                     </motion.div>
