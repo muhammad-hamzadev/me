@@ -19,6 +19,12 @@ function App() {
   useEffect(() => {
     const unsubscribe = subscribeToPath((path) => {
       setCurrentPath(path);
+      // Track page views in Google Analytics on SPA path transitions
+      if (typeof window.gtag === 'function') {
+        window.gtag('config', 'G-WYXP48MVQ4', {
+          page_path: path
+        });
+      }
     });
     return unsubscribe;
   }, []);
