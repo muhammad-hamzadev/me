@@ -24,11 +24,16 @@ function App() {
   }, []);
 
   const renderContent = () => {
-    if (currentPath === '/blog') {
+    let normalizedPath = currentPath;
+    if (normalizedPath.length > 1 && normalizedPath.endsWith('/')) {
+      normalizedPath = normalizedPath.slice(0, -1);
+    }
+
+    if (normalizedPath === '/blog') {
       return <BlogList />;
     }
-    if (currentPath.startsWith('/blog/')) {
-      const slug = currentPath.substring(6);
+    if (normalizedPath.startsWith('/blog/')) {
+      const slug = normalizedPath.substring(6);
       return <BlogPost slug={slug} />;
     }
     return (
