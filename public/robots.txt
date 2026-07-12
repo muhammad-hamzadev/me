@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://hamzax.me/sitemap.xml
+Sitemap: https://hamzax.me/image-sitemap.xml

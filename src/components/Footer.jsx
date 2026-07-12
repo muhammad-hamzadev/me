@@ -1,6 +1,6 @@
-import { SiGithub, SiLinkedin, SiX, SiInstagram } from 'react-icons/si';
+import { SiGithub, SiLinkedin, SiX, SiFacebook, SiInstagram } from 'react-icons/si';
 import { HiHeart } from 'react-icons/hi';
-import logo from '../assets/image-removebg-preview.png';
+import logo from '../assets/hamzax-logo.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -8,13 +8,13 @@ const Footer = () => {
     const socialLinks = [
         {
             icon: SiGithub,
-            href: 'https://github.com/hamzax-codes',
+            href: 'https://github.com/muhammad-hamzadev',
             label: 'GitHub',
             hoverColor: 'hover:text-white hover:bg-gray-800'
         },
         {
             icon: SiLinkedin,
-            href: 'https://www.linkedin.com/in/hamza-ali-b5792939b',
+            href: 'https://www.linkedin.com/in/muhammad-hamza-deve',
             label: 'LinkedIn',
             hoverColor: 'hover:text-white hover:bg-[#0077B5]'
         },
@@ -25,8 +25,14 @@ const Footer = () => {
             hoverColor: 'hover:text-white hover:bg-black'
         },
         {
+            icon: SiFacebook,
+            href: 'https://www.facebook.com/share/1B4Xfw2KL4/',
+            label: 'Facebook',
+            hoverColor: 'hover:text-white hover:bg-[#1877F2]'
+        },
+        {
             icon: SiInstagram,
-            href: 'https://www.instagram.com/i.hamza.ali_',
+            href: 'https://www.instagram.com/muhammadhamzadev',
             label: 'Instagram',
             hoverColor: 'hover:text-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500'
         }
@@ -41,7 +47,7 @@ const Footer = () => {
                     <a href="#home" className="inline-flex items-center gap-0 group mb-0">
                         <img
                             src={logo}
-                            alt="Hamza Portfolio Logo"
+                            alt="Muhammad Hamza Logo"
                             width="64"
                             height="64"
                             className="w-16 h-16 object-contain group-hover:scale-110 transition-transform"
@@ -78,10 +84,9 @@ const Footer = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-secondary/70 text-sm sm:text-base pt-3">
                     <div className="flex items-center gap-2">
                         <span>© {currentYear}</span>
-                        <span className="font-semibold text-primary">Hamza</span>
+                        <span className="font-semibold text-primary">Muhammad Hamza</span>
+                        <span>. All rights reserved.</span>
                     </div>
-                    <span className="hidden sm:inline text-secondary/40">•</span>
-                    All rights reserved
                     <span className="hidden sm:inline text-secondary/40">•</span>
                     <div className="flex items-center gap-2">
                         <span>Built with</span>

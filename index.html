@@ -4,40 +4,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconnect for Google Fonts performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
-
-  <!-- SEO Meta Tags -->
+  <!-- ====================== SEO Meta Tags ====================== -->
+  <meta name="author" content="Muhammad Hamza" />
+  <meta name="robots" content="index, follow" />
   <meta name="description"
-    content="Hamza Ali - Software Engineer & Web Developer. Portfolio showcasing modern web applications built with React, Tailwind CSS, and more." />
+    content="Muhammad Hamza — Software Engineer from Peshawar, Pakistan. Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python/FastAPI and AI/ML." />
   <meta name="keywords"
-    content="software engineer, web developer, portfolio, React, Tailwind CSS, Hamza, frontend developer" />
-  <meta name="author" content="Hamza Ali" />
+    content="Muhammad Hamza, Muhammad Hamza Peshawar, Muhammad Hamza Software Engineer, Muhammad Hamza Pakistan, Quizior, Quizior Main Developer, Solvia Codes, Solvia Codes Co-Founder, Nexior, Nexior Co-Lead, Muhammad Hamza AI Developer, Muhammad Hamza FastAPI Developer, Muhammad Hamza CUSIT" />
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hamza Ali - Software Engineer Portfolio" />
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://hamzax.me" />
+
+  <!-- ====================== Open Graph ======================== -->
+  <meta property="og:title" content="Muhammad Hamza | Software Engineer &amp; AI Developer" />
   <meta property="og:description"
-    content="Passionate software engineer building beautiful, functional web applications with React, Python, and AI." />
+    content="Main Developer of Quizior. Co-Founder, Solvia Codes. Co-Lead, Nexior. Based in Peshawar, Pakistan." />
   <meta property="og:url" content="https://hamzax.me" />
-  <meta property="og:image" content="https://hamzax.me/logo.png" />
+  <meta property="og:image" content="https://hamzax.me/images/muhammad-hamza-profile.jpg" />
+  <meta property="og:image:alt" content="Muhammad Hamza - Software Engineer from Peshawar, Pakistan" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="en_PK" />
+  <meta property="og:site_name" content="Muhammad Hamza | Portfolio" />
 
+  <!-- ===================== Twitter Card ======================= -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Hamza | Software Engineer" />
+  <meta name="twitter:description"
+    content="Main Developer of Quizior. Co-Founder, Solvia Codes. Co-Lead, Nexior." />
+  <meta name="twitter:image" content="https://hamzax.me/images/muhammad-hamza-profile.jpg" />
+  <meta name="twitter:image:alt" content="Muhammad Hamza - Software Engineer from Peshawar, Pakistan" />
 
-  <!-- Theme Color -->
+  <!-- ================== Theme / Favicons ====================== -->
   <meta name="theme-color" content="#239b8f" />
-
-  <!-- Optimized Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/favicon-192x192.png" />
-  <title>Hamza </title>
+
+  <title>Muhammad Hamza | Software Engineer &amp; AI Developer | Peshawar, Pakistan</title>
+
+  <!-- ================ JSON-LD: Person Schema ================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Hamza",
+    "url": "https://hamzax.me",
+    "image": "https://hamzax.me/images/muhammad-hamza-profile.jpg",
+    "jobTitle": "Software Engineer",
+    "description": "Software Engineer from Peshawar, Pakistan. Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python/FastAPI and AI/ML.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "City University of Science and Information Technology (CUSIT), Peshawar"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peshawar",
+      "addressRegion": "Khyber Pakhtunkhwa",
+      "addressCountry": "PK"
+    },
+    "affiliation": [
+      { "@type": "Organization", "name": "Quizior", "url": "https://quizior.live" },
+      { "@type": "Organization", "name": "Solvia Codes" },
+      { "@type": "Organization", "name": "Nexior" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/muhammad-hamza-deve",
+      "https://github.com/muhammad-hamzadev",
+      "https://x.com/i_hamza_06",
+      "https://www.instagram.com/muhammadhamzadev",
+      "https://www.facebook.com/share/1B4Xfw2KL4/",
+      "https://quizior.live"
+      /* REPLACE-WITH-FIVERR-HANDLE: "https://www.fiverr.com/YOUR_HANDLE" */
+    ]
+  }
+  </script>
+
+  <!-- ========= JSON-LD: SoftwareApplication (Quizior) ========= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Quizior",
+    "applicationCategory": "EducationApplication",
+    "url": "https://quizior.live",
+    "description": "AI-powered exam and quiz evaluation platform with real-time invigilation, AI-based subjective grading using Gemini/Groq, and advanced anti-cheating measures.",
+    "operatingSystem": "Web",
+    "creator": {
+      "@type": "Person",
+      "name": "Muhammad Hamza",
+      "url": "https://hamzax.me"
+    }
+  }
+  </script>
+
 </head>
 
 <body>

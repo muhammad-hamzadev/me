@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../contexts/ThemeContext';
-import logo from '../assets/image-removebg-preview.png';
+import logo from '../assets/hamzax-logo.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +67,7 @@ const Navbar = () => {
                     <a href="#home" className="flex items-center gap-0 group">
                         <img
                             src={logo}
-                            alt="Hamza Portfolio Logo"
+                            alt="Muhammad Hamza Logo"
                             width="80"
                             height="80"
                             className="w-20 h-20 object-contain group-hover:scale-110 transition-transform"

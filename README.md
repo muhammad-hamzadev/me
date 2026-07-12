@@ -1,4 +1,4 @@
-# 🚀 Hamza's Portfolio Website
+# 🚀 Muhammad Hamza's Portfolio Website
 
 A modern, responsive portfolio website built with React, Tailwind CSS, and Framer Motion.
 
@@ -25,16 +25,17 @@ A modern, responsive portfolio website built with React, Tailwind CSS, and Frame
 
 ```
 portfolio/
-├── public/           # Static assets
+├── public/           # Static assets (sitemap.xml, robots.txt, favicons)
 ├── src/
 │   ├── assets/      # Images and media
 │   ├── components/  # React components
 │   ├── contexts/    # Context providers (ThemeContext)
+│   ├── hooks/       # Custom hooks (useSEO)
 │   ├── utils/       # Utility functions and animations
 │   ├── App.jsx      # Main app component
 │   ├── index.css    # Global styles
 │   └── main.jsx     # Entry point
-├── index.html       # HTML template
+├── index.html       # HTML template with SEO meta + JSON-LD
 ├── package.json     # Dependencies
 └── vite.config.js   # Vite configuration
 ```
@@ -50,7 +51,7 @@ portfolio/
 
 1. Clone the repository
 ```bash
-git clone https://github.com/hamzax-codes/portfolio.git
+git clone https://github.com/muhammad-hamzadev/portfolio.git
 cd portfolio
 ```
 
@@ -98,10 +99,10 @@ This project is open source and available under the MIT License.
 
 ## 👤 Author
 
-**Hamza Ali**
-- GitHub: [@hamzax-codes](https://github.com/hamzax-codes)
-- LinkedIn: [Hamza Ali](https://www.linkedin.com/in/hamza-ali-b5792939b)
-- Email: hamzaxali70@gmail.com
+**Muhammad Hamza**
+- GitHub: [@muhammad-hamzadev](https://github.com/muhammad-hamzadev)
+- LinkedIn: [Muhammad Hamza](https://www.linkedin.com/in/muhammad-hamza-deve)
+- Email: contact@hamzax.me
 
 ## 🙏 Acknowledgments
 

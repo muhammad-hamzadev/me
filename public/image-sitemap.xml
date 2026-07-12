@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage with profile image -->
+  <url>
+    <loc>https://hamzax.me/</loc>
+    <image:image>
+      <image:loc>https://hamzax.me/images/muhammad-hamza-profile.jpg</image:loc>
+      <image:title>Muhammad Hamza — Software Engineer from Peshawar, Pakistan</image:title>
+      <image:caption>Muhammad Hamza, Software Engineer, Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Based in Peshawar, Pakistan.</image:caption>
+      <image:geo_location>Peshawar, Khyber Pakhtunkhwa, Pakistan</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://hamzax.me/favicon-512x512.png</image:loc>
+      <image:title>Muhammad Hamza — Portfolio Logo</image:title>
+    </image:image>
+  </url>
+
+  <!-- Projects section with key project images -->
+  <url>
+    <loc>https://hamzax.me/#projects</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&amp;q=80</image:loc>
+      <image:title>QuizAura — AI-Powered Quiz System by Muhammad Hamza</image:title>
+      <image:caption>QuizAura: AI-powered multi-tenant quiz platform with real-time invigilation and AI-based subjective grading. Built by Muhammad Hamza.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&amp;q=80</image:loc>
+      <image:title>Terminal Chatbot — AI CLI Tool by Muhammad Hamza</image:title>
+      <image:caption>Terminal Chatbot using Google Gemini 1.5 Flash, built by Muhammad Hamza, Software Engineer.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&amp;q=80</image:loc>
+      <image:title>AI UI/UX Feedback System by Muhammad Hamza</image:title>
+      <image:caption>Multi-agent AI design auditor powered by Gemini 2.5 Flash. Built by Muhammad Hamza.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

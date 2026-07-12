@@ -82,11 +82,17 @@ const Hero = () => {
                     <div className="relative z-10 flex flex-col items-center text-center">
                         <motion.h1
                             variants={fadeInUp}
-                            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary mb-6"
+                            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary mb-4"
                         >
-                            Hi, I'm{' '}
-                            <span className="text-brand-500">Hamza</span>
+                            <span className="text-brand-500">Muhammad</span>{' '}Hamza
                         </motion.h1>
+
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-sm sm:text-base text-muted font-medium mb-4 max-w-xl mx-auto tracking-wide text-center"
+                        >
+                            Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-500 hover:underline">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;Solvia Codes&nbsp;&bull;&nbsp;Co-Lead,&nbsp;Nexior
+                        </motion.p>
 
                         <motion.h2
                             variants={fadeInUp}
@@ -100,8 +106,8 @@ const Hero = () => {
                             variants={fadeInUp}
                             className="text-lg sm:text-xl text-muted mb-10 max-w-2xl mx-auto leading-relaxed"
                         >
-                            Passionate about building beautiful, functional web applications.
-                            I transform ideas into clean code and create seamless user experiences.
+                            Building reliable, maintainable software with Python & FastAPI.
+                            Exploring AI/ML and developing products that solve real problems.
                         </motion.p>
 
                         {/* CTA Buttons */}

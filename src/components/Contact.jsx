@@ -80,8 +80,8 @@ const Contact = () => {
         {
             icon: HiMail,
             label: 'Email',
-            value: 'hamzaxali70@gmail.com',
-            href: 'https://mail.google.com/mail/?view=cm&to=hamzaxali70@gmail.com',
+            value: 'contact@hamzax.me',
+            href: 'mailto:contact@hamzax.me',
             color: 'text-red-500',
             bgColor: 'bg-red-500/10'
         },
