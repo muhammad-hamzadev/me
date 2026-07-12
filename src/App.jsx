@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -6,20 +7,47 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BlogList from './components/BlogList';
+import BlogPost from './components/BlogPost';
 import useSEO from './hooks/useSEO';
+import { getCurrentPath, subscribeToPath } from './utils/history';
 
 function App() {
   useSEO();
+  const [currentPath, setCurrentPath] = useState(getCurrentPath());
+
+  useEffect(() => {
+    const unsubscribe = subscribeToPath((path) => {
+      setCurrentPath(path);
+    });
+    return unsubscribe;
+  }, []);
+
+  const renderContent = () => {
+    if (currentPath === '/blog') {
+      return <BlogList />;
+    }
+    if (currentPath.startsWith('/blog/')) {
+      const slug = currentPath.substring(6);
+      return <BlogPost slug={slug} />;
+    }
+    return (
+      <>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </>
+    );
+  };
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-main transition-theme overflow-x-hidden">
         <Navbar />
         <main className="overflow-x-hidden">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
+          {renderContent()}
         </main>
         <Footer />
       </div>

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!--
-    This is a single-page application (SPA).
-    All sections (About, Skills, Projects, Contact) live on one page via scroll.
-    Google does NOT treat hash fragments (#about, #skills, etc.) as separate URLs,
-    so only the canonical homepage URL is listed here.
-
-    When real separate pages are added (e.g. /blog, /blog/post-1),
-    add them as individual <url> entries below.
-  -->
-
+  <!-- Homepage -->
   <url>
     <loc>https://hamzax.me/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
+  <!-- Blog List Page -->
+  <url>
+    <loc>https://hamzax.me/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Individual Blog Posts -->
+  <url>
+    <loc>https://hamzax.me/blog/quizior-mcq-quiz-platform</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

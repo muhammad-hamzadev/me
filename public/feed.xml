@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Muhammad Hamza's Blog</title>
+  <link>https://hamzax.me/blog</link>
+  <description>Articles on software engineering, AI/ML, and building products like Quizior, JARVIS, and more — written by Muhammad Hamza.</description>
+  <language>en-us</language>
+  <pubDate>Sun, 12 Jul 2026 13:35:41 GMT</pubDate>
+  <lastBuildDate>Sun, 12 Jul 2026 13:35:41 GMT</lastBuildDate>
+  <atom:link href="https://hamzax.me/feed.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>Inside Quizior: How I Built a Free, Real-Time MCQ Quiz Platform</title>
+    <link>https://hamzax.me/blog/quizior-mcq-quiz-platform</link>
+    <description>Muhammad Hamza breaks down how Quizior lets you generate up to 100 MCQs instantly, extract 350+ questions from Word/Excel files, and run live, leaderboard-driven quizzes for classrooms and competitions — completely free.</description>
+    <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+    <guid>https://hamzax.me/blog/quizior-mcq-quiz-platform</guid>
+  </item>
+</channel>
+</rss>

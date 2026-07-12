@@ -14,9 +14,9 @@ export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(() => {
         // Check localStorage for saved theme
         const savedTheme = localStorage.getItem('theme');
-        // Check system preference if no saved theme
+        // Check system preference if no saved theme, default to dark
         if (!savedTheme) {
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            return 'dark';
         }
         return savedTheme;
     });

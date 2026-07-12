@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../contexts/ThemeContext';
 import logo from '../assets/hamzax-logo.png';
+import { pushPath } from '../utils/history';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,24 +35,54 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'About', href: '#about', isSection: true },
+        { name: 'Skills', href: '#skills', isSection: true },
+        { name: 'Projects', href: '#projects', isSection: true },
+        { name: 'Contact', href: '#contact', isSection: true },
+        { name: 'Blog', href: '/blog', isSection: false },
     ];
 
-    const scrollToSection = (e, href) => {
+    const handleNavLinkClick = (e, link) => {
         e.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            const navbarHeight = 64; // Matching h-16
-            const targetPosition = element.offsetTop - navbarHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-            setIsOpen(false);
+        setIsOpen(false);
+
+        if (link.isSection) {
+            if (window.location.pathname !== '/') {
+                pushPath('/');
+                setTimeout(() => {
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                        const navbarHeight = 64;
+                        window.scrollTo({
+                            top: element.offsetTop - navbarHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 150);
+            } else {
+                const element = document.querySelector(link.href);
+                if (element) {
+                    const navbarHeight = 64;
+                    window.scrollTo({
+                        top: element.offsetTop - navbarHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        } else {
+            pushPath(link.href);
+            window.scrollTo(0, 0);
         }
+    };
+
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        setIsOpen(false);
+        pushPath('/');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
 
     return (
@@ -64,7 +95,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo/Name */}
-                    <a href="#home" className="flex items-center gap-0 group">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center gap-0 group">
                         <img
                             src={logo}
                             alt="Muhammad Hamza Logo"
@@ -80,12 +111,16 @@ const Navbar = () => {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => {
-                            const isActive = activeSection === link.href.substring(1);
+                            const isBlogActive = window.location.pathname.startsWith('/blog');
+                            const isActive = link.isSection
+                                ? (activeSection === link.href.substring(1) && window.location.pathname === '/')
+                                : isBlogActive;
+
                             return (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    onClick={(e) => handleNavLinkClick(e, link)}
                                     className={`relative py-2 transition-colors font-bold ${isActive ? 'text-brand-500' : 'text-secondary hover:text-brand-500'
                                         }`}
                                 >
@@ -129,23 +164,23 @@ const Navbar = () => {
                         </button>
                     </div>
                 </div>
-
-                {/* Mobile Menu */}
-                {isOpen && (
-                    <div className="md:hidden py-4 glass mt-2 rounded-lg">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => scrollToSection(e, link.href)}
-                                className="block px-4 py-3 text-secondary hover:text-brand-500 hover:bg-brand-500/10 transition-colors font-bold"
-                            >
-                                {link.name}
-                            </a>
-                        ))}
-                    </div>
-                )}
             </div>
+
+            {/* Mobile Menu */}
+            {isOpen && (
+                <div className="md:hidden py-4 glass mt-2 rounded-lg mx-4">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={(e) => handleNavLinkClick(e, link)}
+                            className="block px-4 py-3 text-secondary hover:text-brand-500 hover:bg-brand-500/10 transition-colors font-bold"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                </div>
+            )}
         </nav>
     );
 };
