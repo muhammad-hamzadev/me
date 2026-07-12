@@ -7,7 +7,7 @@
   "author": "Muhammad Hamza",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-blog-meta.mjs && vite build",
+    "build": "node scripts/generate-blog-meta.mjs && vite build && node scripts/prerender-blog.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist -b gh-pages"
