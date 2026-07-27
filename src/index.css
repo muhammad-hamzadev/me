@@ -10,19 +10,19 @@
   --bg-surface: #ffffff;
   --text-primary: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-muted: #475569;
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(15, 23, 42, 0.08);
 }
 
 .dark {
-  /* Dark theme colors */
+  /* Dark theme colors - High contrast compliance */
   --bg-main: #0b0f14;
   --bg-secondary: #121821;
   --bg-surface: #181f2b;
-  --text-primary: #e6eaf0;
-  --text-secondary: #b4bcc8;
-  --text-muted: #7d8794;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
   --card-bg: rgba(255, 255, 255, 0.04);
   --card-border: rgba(255, 255, 255, 0.1);
 }
