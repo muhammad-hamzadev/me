@@ -24,5 +24,19 @@ function inlineCssPlugin() {
 export default defineConfig({
   plugins: [react(), inlineCssPlugin()],
   base: '/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-icons')) return 'vendor-icons';
+            if (id.includes('framer-motion')) return 'vendor-framer';
+            if (id.includes('marked')) return 'vendor-marked';
+            return 'vendor';
+          }
+        }
+      }
+    }
+  }
 })
 

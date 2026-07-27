@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,10 +7,11 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import BlogList from './components/BlogList';
-import BlogPost from './components/BlogPost';
 import useSEO from './hooks/useSEO';
 import { getCurrentPath, subscribeToPath } from './utils/history';
+
+const BlogList = lazy(() => import('./components/BlogList'));
+const BlogPost = lazy(() => import('./components/BlogPost'));
 
 function App() {
   useSEO();
@@ -36,11 +37,19 @@ function App() {
     }
 
     if (normalizedPath === '/blog') {
-      return <BlogList />;
+      return (
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-primary font-medium">Loading...</div>}>
+          <BlogList />
+        </Suspense>
+      );
     }
     if (normalizedPath.startsWith('/blog/')) {
       const slug = normalizedPath.substring(6);
-      return <BlogPost slug={slug} />;
+      return (
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-primary font-medium">Loading...</div>}>
+          <BlogPost slug={slug} />
+        </Suspense>
+      );
     }
     return (
       <>
