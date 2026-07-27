@@ -80,6 +80,20 @@ const Skills = () => {
     const lastTimeRef = useRef(0);
     const lastXRef = useRef(0);
 
+    const halfWidthRef = useRef(0);
+
+    // Cache slider width on mount and resize to prevent forced reflows during animation
+    useEffect(() => {
+        const updateWidth = () => {
+            if (scrollRef.current) {
+                halfWidthRef.current = scrollRef.current.scrollWidth / 2;
+            }
+        };
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
+    }, []);
+
     // Auto-scroll logic
     useEffect(() => {
         const slider = scrollRef.current;
@@ -90,11 +104,11 @@ const Skills = () => {
 
         const animate = () => {
             if (!isPaused && !isDragging) {
+                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
                 slider.scrollLeft += speed;
 
                 // Infinite wrap-around (Forward)
-                const halfWidth = slider.scrollWidth / 2;
-                if (slider.scrollLeft >= halfWidth) {
+                if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
                     slider.scrollLeft -= halfWidth;
                 }
             }
@@ -116,13 +130,15 @@ const Skills = () => {
                 // Only prevent default when there's horizontal scroll
                 e.preventDefault();
                 const delta = e.deltaX;
+                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
                 slider.scrollLeft += delta;
 
-                const halfWidth = slider.scrollWidth / 2;
-                if (slider.scrollLeft >= halfWidth) {
-                    slider.scrollLeft -= halfWidth;
-                } else if (slider.scrollLeft <= 0) {
-                    slider.scrollLeft += halfWidth;
+                if (halfWidth > 0) {
+                    if (slider.scrollLeft >= halfWidth) {
+                        slider.scrollLeft -= halfWidth;
+                    } else if (slider.scrollLeft <= 0) {
+                        slider.scrollLeft += halfWidth;
+                    }
                 }
             }
             // If deltaX is 0 (vertical scroll only), do nothing - let page scroll normally
@@ -149,14 +165,17 @@ const Skills = () => {
     const handleMouseMove = (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 2;
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-
         const slider = scrollRef.current;
-        const halfWidth = slider.scrollWidth / 2;
-        if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-        if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
+
+        slider.scrollLeft = scrollLeft - walk;
+
+        if (halfWidth > 0) {
+            if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
+            if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+        }
     };
 
     // Touch event handlers for mobile with momentum
@@ -182,13 +201,15 @@ const Skills = () => {
                 const slider = scrollRef.current;
                 if (!slider) return;
 
+                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
                 slider.scrollLeft -= currentVelocity;
                 currentVelocity *= deceleration;
 
                 // Handle infinite wrap
-                const halfWidth = slider.scrollWidth / 2;
-                if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-                if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+                if (halfWidth > 0) {
+                    if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
+                    if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+                }
 
                 requestAnimationFrame(momentumScroll);
             };
@@ -201,9 +222,12 @@ const Skills = () => {
         e.preventDefault(); // Prevent default touch scrolling
 
         const touch = e.touches[0];
-        const x = touch.pageX - scrollRef.current.offsetLeft;
+        const slider = scrollRef.current;
+        const x = touch.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
-        scrollRef.current.scrollLeft = scrollLeft - walk;
+        const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
+
+        slider.scrollLeft = scrollLeft - walk;
 
         // Calculate velocity for momentum
         const now = Date.now();
@@ -215,10 +239,10 @@ const Skills = () => {
         lastTimeRef.current = now;
         lastXRef.current = x;
 
-        const slider = scrollRef.current;
-        const halfWidth = slider.scrollWidth / 2;
-        if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-        if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+        if (halfWidth > 0) {
+            if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
+            if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+        }
     };
 
     const skillCategories = [

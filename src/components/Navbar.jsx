@@ -12,26 +12,44 @@ const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-
-            // Active section logic
+        let sectionPositions = [];
+        const updatePositions = () => {
             const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-            const scrollPosition = window.scrollY + 100;
+            sectionPositions = sections.map((id) => {
+                const element = document.getElementById(id);
+                if (!element) return null;
+                return { id, top: element.offsetTop, height: element.offsetHeight };
+            }).filter(Boolean);
+        };
 
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element) {
-                    const top = element.offsetTop;
-                    const height = element.offsetHeight;
-                    if (scrollPosition >= top && scrollPosition < top + height) {
-                        setActiveSection(section);
+        updatePositions();
+        window.addEventListener('resize', updatePositions);
+
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    setScrolled(scrollY > 20);
+
+                    const scrollPosition = scrollY + 100;
+                    for (const section of sectionPositions) {
+                        if (scrollPosition >= section.top && scrollPosition < section.top + section.height) {
+                            setActiveSection(section.id);
+                            break;
+                        }
                     }
-                }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener('resize', updatePositions);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const navLinks = [
