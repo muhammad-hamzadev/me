@@ -351,7 +351,7 @@ const Skills = () => {
                                     <service.icon className="text-2xl sm:text-3xl text-primary" aria-label={service.title.join(' ')} />
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold mb-2">
-                                    <span className="text-brand-500">{service.title[0]}</span>{" "}
+                                    <span className="text-brand-600 dark:text-brand-400">{service.title[0]}</span>{" "}
                                     <span className="text-primary">{service.title[1]}</span>
                                 </h3>
                                 <p className="text-secondary text-[10px] sm:text-xs leading-relaxed max-w-[220px]">

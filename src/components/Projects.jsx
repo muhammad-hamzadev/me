@@ -51,7 +51,7 @@ const Projects = () => {
                     viewport={{ once: true, margin: "-100px" }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-primary text-center mb-4">
-                        Featured <span className="text-brand-500">Projects</span>
+                        Featured <span className="text-brand-600 dark:text-brand-400">Projects</span>
                     </h2>
                     <p className="text-secondary text-center mb-12 max-w-2xl mx-auto">
                         Here are some of my recent projects that showcase my skills and experience
@@ -97,7 +97,7 @@ const Projects = () => {
                                     {project.tech.map((tech) => (
                                         <span
                                             key={tech}
-                                            className="px-3 py-1 text-sm bg-brand-500/10 text-brand-500 rounded-full"
+                                            className="px-3 py-1 text-sm bg-brand-500/10 text-brand-600 dark:text-brand-400 font-semibold rounded-full"
                                         >
                                             {tech}
                                         </span>
