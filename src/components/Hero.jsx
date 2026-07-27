@@ -20,7 +20,15 @@ const Hero = () => {
         'Android App Developer'
     ];
 
+    const [hasStarted, setHasStarted] = useState(false);
+
     useEffect(() => {
+        const startTimer = setTimeout(() => setHasStarted(true), 1000);
+        return () => clearTimeout(startTimer);
+    }, []);
+
+    useEffect(() => {
+        if (!hasStarted) return;
         const typingSpeed = isDeleting ? 50 : 100;
         const currentRole = roles[roleIndex];
 
@@ -44,7 +52,7 @@ const Hero = () => {
         }, typingSpeed);
 
         return () => clearTimeout(timer);
-    }, [charIndex, isDeleting, roleIndex]);
+    }, [charIndex, isDeleting, roleIndex, hasStarted]);
 
     const scrollToSection = (sectionId) => {
         const element = document.querySelector(sectionId);

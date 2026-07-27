@@ -96,7 +96,7 @@ const Skills = () => {
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    // Auto-scroll logic (Pure write-only to DOM, 0 forced reflows)
+    // Auto-scroll logic (Pure write-only to DOM, deferred start for 0 TBT)
     useEffect(() => {
         const slider = scrollRef.current;
         if (!slider) return;
@@ -104,22 +104,28 @@ const Skills = () => {
         let animationFrameId;
         const speed = 0.6; // Constant slow motion
 
-        const animate = () => {
-            if (!isPaused && !isDragging) {
-                const halfWidth = halfWidthRef.current;
-                scrollPosRef.current += speed;
+        const startTimer = setTimeout(() => {
+            const animate = () => {
+                if (!isPaused && !isDragging) {
+                    const halfWidth = halfWidthRef.current;
+                    scrollPosRef.current += speed;
 
-                // Infinite wrap-around (Forward)
-                if (halfWidth > 0 && scrollPosRef.current >= halfWidth) {
-                    scrollPosRef.current -= halfWidth;
+                    // Infinite wrap-around (Forward)
+                    if (halfWidth > 0 && scrollPosRef.current >= halfWidth) {
+                        scrollPosRef.current -= halfWidth;
+                    }
+                    slider.scrollLeft = scrollPosRef.current;
                 }
-                slider.scrollLeft = scrollPosRef.current;
-            }
-            animationFrameId = requestAnimationFrame(animate);
-        };
+                animationFrameId = requestAnimationFrame(animate);
+            };
 
-        animationFrameId = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(animate);
+        }, 1000);
+
+        return () => {
+            clearTimeout(startTimer);
+            cancelAnimationFrame(animationFrameId);
+        };
     }, [isPaused, isDragging]);
 
     // Native non-passive wheel listener to allow preventDefault

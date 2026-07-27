@@ -22,7 +22,7 @@ const Navbar = () => {
             }).filter(Boolean);
         };
 
-        updatePositions();
+        const timer = setTimeout(updatePositions, 500);
         window.addEventListener('resize', updatePositions);
 
         let ticking = false;
