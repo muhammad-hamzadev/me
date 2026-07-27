@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
 import { SiWhatsapp } from 'react-icons/si';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -28,6 +27,10 @@ const Contact = () => {
         setStatus({ type: '', message: '' });
 
         try {
+            // Dynamically import EmailJS to reduce initial JS bundle size
+            const emailjsModule = await import('@emailjs/browser');
+            const emailjs = emailjsModule.default || emailjsModule;
+
             // EmailJS Configuration - With fallbacks for production
             const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_qqf2tjs';
             const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_a40wu2i';

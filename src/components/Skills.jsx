@@ -81,12 +81,14 @@ const Skills = () => {
     const lastXRef = useRef(0);
 
     const halfWidthRef = useRef(0);
+    const scrollPosRef = useRef(0);
 
     // Cache slider width on mount and resize to prevent forced reflows during animation
     useEffect(() => {
         const updateWidth = () => {
             if (scrollRef.current) {
                 halfWidthRef.current = scrollRef.current.scrollWidth / 2;
+                scrollPosRef.current = scrollRef.current.scrollLeft;
             }
         };
         updateWidth();
@@ -94,7 +96,7 @@ const Skills = () => {
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    // Auto-scroll logic
+    // Auto-scroll logic (Pure write-only to DOM, 0 forced reflows)
     useEffect(() => {
         const slider = scrollRef.current;
         if (!slider) return;
@@ -104,13 +106,14 @@ const Skills = () => {
 
         const animate = () => {
             if (!isPaused && !isDragging) {
-                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
-                slider.scrollLeft += speed;
+                const halfWidth = halfWidthRef.current;
+                scrollPosRef.current += speed;
 
                 // Infinite wrap-around (Forward)
-                if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
-                    slider.scrollLeft -= halfWidth;
+                if (halfWidth > 0 && scrollPosRef.current >= halfWidth) {
+                    scrollPosRef.current -= halfWidth;
                 }
+                slider.scrollLeft = scrollPosRef.current;
             }
             animationFrameId = requestAnimationFrame(animate);
         };
@@ -130,16 +133,17 @@ const Skills = () => {
                 // Only prevent default when there's horizontal scroll
                 e.preventDefault();
                 const delta = e.deltaX;
-                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
-                slider.scrollLeft += delta;
+                const halfWidth = halfWidthRef.current;
+                scrollPosRef.current += delta;
 
                 if (halfWidth > 0) {
-                    if (slider.scrollLeft >= halfWidth) {
-                        slider.scrollLeft -= halfWidth;
-                    } else if (slider.scrollLeft <= 0) {
-                        slider.scrollLeft += halfWidth;
+                    if (scrollPosRef.current >= halfWidth) {
+                        scrollPosRef.current -= halfWidth;
+                    } else if (scrollPosRef.current <= 0) {
+                        scrollPosRef.current += halfWidth;
                     }
                 }
+                slider.scrollLeft = scrollPosRef.current;
             }
             // If deltaX is 0 (vertical scroll only), do nothing - let page scroll normally
         };

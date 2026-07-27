@@ -5,45 +5,69 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const assetsDir = path.join(__dirname, '..', 'src', 'assets');
+const rootDir = path.join(__dirname, '..');
 
 async function optimizeImages() {
-    console.log('🖼️  Optimizing local image assets...');
+    console.log('🖼️  Optimizing ALL project image assets...');
 
-    // 1. Optimize Profile WebP (1200x2133 -> 800px width max)
-    const profileWebpPath = path.join(assetsDir, 'muhammad-hamza-profile.webp');
-    if (fs.existsSync(profileWebpPath)) {
-        const inputBuffer = fs.readFileSync(profileWebpPath);
-        const outputBuffer = await sharp(inputBuffer)
-            .resize({ width: 800, withoutEnlargement: true })
-            .webp({ quality: 80, effort: 6 })
-            .toBuffer();
-        fs.writeFileSync(profileWebpPath, outputBuffer);
-        console.log(`✅ Optimized muhammad-hamza-profile.webp (${(outputBuffer.length / 1024).toFixed(1)} KiB)`);
-    }
+    const targets = [
+        {
+            file: path.join(rootDir, 'src', 'assets', 'muhammad-hamza-profile.webp'),
+            type: 'webp',
+            width: 800,
+            quality: 80
+        },
+        {
+            file: path.join(rootDir, 'src', 'assets', 'muhammad-hamza-profile.png'),
+            type: 'png',
+            width: 800
+        },
+        {
+            file: path.join(rootDir, 'src', 'assets', 'hamzax-logo.png'),
+            type: 'png',
+            width: 160
+        },
+        {
+            file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.jpg'),
+            type: 'jpeg',
+            width: 800,
+            quality: 80
+        },
+        {
+            file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.webp'),
+            type: 'webp',
+            width: 800,
+            quality: 80
+        },
+        {
+            file: path.join(rootDir, 'public', 'images', 'blog', 'quizior-mcq-cover.png'),
+            type: 'png',
+            width: 800
+        },
+        {
+            file: path.join(rootDir, 'public', 'favicon-512x512.png'),
+            type: 'png',
+            width: 256
+        }
+    ];
 
-    // 2. Optimize Profile PNG Fallback (988 KiB -> 800px width PNG ~40 KiB)
-    const profilePngPath = path.join(assetsDir, 'muhammad-hamza-profile.png');
-    if (fs.existsSync(profilePngPath)) {
-        const inputBuffer = fs.readFileSync(profilePngPath);
-        const outputBuffer = await sharp(inputBuffer)
-            .resize({ width: 800, withoutEnlargement: true })
-            .png({ compressionLevel: 9, palette: true })
-            .toBuffer();
-        fs.writeFileSync(profilePngPath, outputBuffer);
-        console.log(`✅ Optimized muhammad-hamza-profile.png (${(outputBuffer.length / 1024).toFixed(1)} KiB)`);
-    }
+    for (const target of targets) {
+        if (fs.existsSync(target.file)) {
+            const inputBuffer = fs.readFileSync(target.file);
+            let image = sharp(inputBuffer).resize({ width: target.width, withoutEnlargement: true });
 
-    // 3. Optimize Logo (500x500 -> 160x160)
-    const logoPath = path.join(assetsDir, 'hamzax-logo.png');
-    if (fs.existsSync(logoPath)) {
-        const inputBuffer = fs.readFileSync(logoPath);
-        const outputBuffer = await sharp(inputBuffer)
-            .resize({ width: 160, height: 160, fit: 'contain' })
-            .png({ compressionLevel: 9, palette: true })
-            .toBuffer();
-        fs.writeFileSync(logoPath, outputBuffer);
-        console.log(`✅ Optimized hamzax-logo.png (${(outputBuffer.length / 1024).toFixed(1)} KiB)`);
+            if (target.type === 'webp') {
+                image = image.webp({ quality: target.quality || 80, effort: 6 });
+            } else if (target.type === 'jpeg') {
+                image = image.jpeg({ quality: target.quality || 80, mozjpeg: true });
+            } else if (target.type === 'png') {
+                image = image.png({ compressionLevel: 9, palette: true });
+            }
+
+            const outputBuffer = await image.toBuffer();
+            fs.writeFileSync(target.file, outputBuffer);
+            console.log(`✅ Optimized ${path.relative(rootDir, target.file)} (${(outputBuffer.length / 1024).toFixed(1)} KiB)`);
+        }
     }
 }
 
