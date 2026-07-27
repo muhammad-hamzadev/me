@@ -193,8 +193,12 @@ const BlogPost = ({ slug }) => {
                     {/* Tiny Avatar */}
                     <div className="w-16 h-16 rounded-full overflow-hidden border border-brand-500/20 flex-shrink-0">
                         <img
-                            src="/images/muhammad-hamza-profile.jpg"
+                            src="/images/muhammad-hamza-profile.webp"
                             alt="Muhammad Hamza"
+                            loading="lazy"
+                            decoding="async"
+                            width="64"
+                            height="64"
                             className="w-full h-full object-cover"
                         />
                     </div>
