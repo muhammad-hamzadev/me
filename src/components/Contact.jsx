@@ -135,7 +135,7 @@ const Contact = () => {
                             className="glass rounded-lg p-4 flex items-start gap-3 hover:border-brand-500/30 transition-all"
                         >
                             <div className={`p-2 ${info.bgColor} rounded-lg`}>
-                                <info.icon className={info.color} size={24} />
+                                <info.icon className={info.color} size={24} aria-hidden="true" />
                             </div>
                             <div>
                                 <p className="text-sm text-secondary mb-1">{info.label}</p>

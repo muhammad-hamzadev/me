@@ -73,7 +73,7 @@ const Footer = () => {
                                 className={`group relative p-3.5 rounded-xl bg-surface/50 backdrop-blur-sm border border-card-border/40 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-brand-500/20 ${social.hoverColor}`}
                                 aria-label={social.label}
                             >
-                                <social.icon size={22} className="transition-transform duration-300 group-hover:scale-110" />
+                                <social.icon size={22} className="transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                             </a>
                         ))}
                     </div>
@@ -90,7 +90,7 @@ const Footer = () => {
                     <span className="hidden sm:inline text-secondary/40">•</span>
                     <div className="flex items-center gap-2">
                         <span>Built with</span>
-                        <HiHeart className="text-red-500 animate-pulse" size={18} />
+                        <HiHeart className="text-red-500 animate-pulse" size={18} aria-hidden="true" />
                         <span>& Code</span>
                     </div>
                 </div>

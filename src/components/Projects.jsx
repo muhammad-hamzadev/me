@@ -112,7 +112,7 @@ const Projects = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-secondary hover:text-brand-500 transition-colors"
                                     >
-                                        <SiGithub size={20} />
+                                        <SiGithub size={20} aria-hidden="true" />
                                         <span>View Code</span>
                                     </a>
                                 </div>

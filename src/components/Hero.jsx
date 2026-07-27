@@ -97,7 +97,7 @@ const Hero = () => {
                                 className="px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-brand-500/30"
                             >
                                 Download Resume
-                                <HiDownload />
+                                <HiDownload aria-hidden="true" />
                             </button>
                             <button
                                 onClick={() => scrollToSection('#contact')}

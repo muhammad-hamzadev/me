@@ -348,7 +348,7 @@ const Skills = () => {
                             >
                                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-secondary flex items-center justify-center mb-4 relative">
                                     <div className="absolute inset-0 rounded-full border-2 border-brand-500/20 group-hover/card:border-brand-500 transition-colors" />
-                                    <service.icon className="text-2xl sm:text-3xl text-primary" />
+                                    <service.icon className="text-2xl sm:text-3xl text-primary" aria-label={service.title.join(' ')} />
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold mb-2">
                                     <span className="text-brand-500">{service.title[0]}</span>{" "}
@@ -392,6 +392,7 @@ const Skills = () => {
                                                 size={44}
                                                 color={iconColor}
                                                 className="group-hover:scale-110 transition-transform"
+                                                aria-label={skill.name}
                                             />
                                             <span className="text-xs sm:text-sm text-secondary text-center font-medium">
                                                 {skill.name}

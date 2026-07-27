@@ -160,7 +160,7 @@ const Navbar = () => {
                             className="p-2 rounded-lg hover:bg-brand-500/10 transition-colors text-primary"
                             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
                         >
-                            {theme === 'dark' ? <HiSun size={24} /> : <HiMoon size={24} />}
+                            {theme === 'dark' ? <HiSun size={24} aria-hidden="true" /> : <HiMoon size={24} aria-hidden="true" />}
                         </button>
                     </div>
 
@@ -171,14 +171,14 @@ const Navbar = () => {
                             className="p-2 rounded-lg hover:bg-brand-500/10 transition-colors text-primary"
                             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
                         >
-                            {theme === 'dark' ? <HiSun size={24} /> : <HiMoon size={24} />}
+                            {theme === 'dark' ? <HiSun size={24} aria-hidden="true" /> : <HiMoon size={24} aria-hidden="true" />}
                         </button>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 rounded-lg hover:bg-brand-500/10 transition-colors text-primary"
                             aria-label="Toggle menu"
                         >
-                            {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+                            {isOpen ? <HiX size={28} aria-hidden="true" /> : <HiMenuAlt3 size={28} aria-hidden="true" />}
                         </button>
                     </div>
                 </div>
