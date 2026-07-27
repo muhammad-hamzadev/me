@@ -31,8 +31,8 @@ const About = () => {
                                     alt="Muhammad Hamza - Software Engineer from Peshawar, Pakistan"
                                     loading="lazy"
                                     decoding="async"
-                                    width="1200"
-                                    height="675"
+                                    width="420"
+                                    height="746"
                                     className="relative z-10 w-full h-auto rounded-[2rem] shadow-xl border-2 border-brand-500/20 transform-gpu"
                                     style={{
                                         imageRendering: '-webkit-optimize-contrast',
