@@ -77,7 +77,7 @@ const Hero = () => {
                         </h1>
 
                         <p className="text-sm sm:text-base text-muted font-medium mb-4 max-w-xl mx-auto tracking-wide text-center">
-                            Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 hover:underline">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;Solvia Codes&nbsp;&bull;&nbsp;Co-Lead,&nbsp;Nexior
+                            Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 underline decoration-brand-500/60 underline-offset-2 hover:decoration-brand-500 font-semibold">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;Solvia Codes&nbsp;&bull;&nbsp;Co-Lead,&nbsp;Nexior
                         </p>
 
                         <h2 className="text-2xl sm:text-3xl mb-8 h-10 flex items-center justify-center font-mono">
