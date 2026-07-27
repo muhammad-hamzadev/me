@@ -61,16 +61,8 @@ const Hero = () => {
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full blur-[140px] pointer-events-none transition-colors duration-500 ${isLight ? 'bg-brand-500/30' : 'bg-brand-500/15'
                 }`}></div>
 
-            <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="w-full h-full relative z-10"
-            >
-                <motion.div
-                    variants={fadeInUp}
-                    className="glass w-full h-full flex items-center justify-center p-8 sm:p-12 md:p-16 relative overflow-hidden group border-none"
-                >
+            <div className="w-full h-full relative z-10">
+                <div className="glass w-full h-full flex items-center justify-center p-8 sm:p-12 md:p-16 relative overflow-hidden group border-none">
                     {/* Inner Center Light Source */}
                     <div
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none transition-opacity duration-500"
@@ -80,41 +72,26 @@ const Hero = () => {
                     ></div>
 
                     <div className="relative z-10 flex flex-col items-center text-center">
-                        <motion.h1
-                            variants={fadeInUp}
-                            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary mb-4"
-                        >
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary mb-4">
                             <span className="text-brand-500">Muhammad</span>{' '}Hamza
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            variants={fadeInUp}
-                            className="text-sm sm:text-base text-muted font-medium mb-4 max-w-xl mx-auto tracking-wide text-center"
-                        >
+                        <p className="text-sm sm:text-base text-muted font-medium mb-4 max-w-xl mx-auto tracking-wide text-center">
                             Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-500 hover:underline">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;Solvia Codes&nbsp;&bull;&nbsp;Co-Lead,&nbsp;Nexior
-                        </motion.p>
+                        </p>
 
-                        <motion.h2
-                            variants={fadeInUp}
-                            className="text-2xl sm:text-3xl mb-8 h-10 flex items-center justify-center font-mono"
-                        >
+                        <h2 className="text-2xl sm:text-3xl mb-8 h-10 flex items-center justify-center font-mono">
                             <span className="text-primary font-medium">{displayText}</span>
                             <span className="w-[2px] h-8 bg-brand-500 ml-1 animate-pulse"></span>
-                        </motion.h2>
+                        </h2>
 
-                        <motion.p
-                            variants={fadeInUp}
-                            className="text-lg sm:text-xl text-muted mb-10 max-w-2xl mx-auto leading-relaxed"
-                        >
+                        <p className="text-lg sm:text-xl text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
                             Building reliable, maintainable software with Python & FastAPI.
                             Exploring AI/ML and developing products that solve real problems.
-                        </motion.p>
+                        </p>
 
                         {/* CTA Buttons */}
-                        <motion.div
-                            variants={fadeInUp}
-                            className="flex flex-wrap gap-4 justify-center"
-                        >
+                        <div className="flex flex-wrap gap-4 justify-center">
                             <button
                                 onClick={() => window.open('/MUHAMMAD HAMZA.pdf', '_blank')}
                                 className="px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-brand-500/30"
@@ -128,10 +105,10 @@ const Hero = () => {
                             >
                                 Get in Touch
                             </button>
-                        </motion.div>
+                        </div>
                     </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </section>
     );
 };
