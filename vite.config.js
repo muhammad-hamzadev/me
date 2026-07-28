@@ -25,6 +25,10 @@ export default defineConfig({
   plugins: [react(), inlineCssPlugin()],
   base: '/',
   build: {
+    target: 'es2020',
+    esbuild: {
+      drop: ['console', 'debugger']
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -39,4 +43,3 @@ export default defineConfig({
     }
   }
 })
-
