@@ -29,7 +29,7 @@ const About = () => {
                                 <img
                                     src={heroPhotoPng}
                                     alt="Muhammad Hamza - Software Engineer from Peshawar, Pakistan"
-                                    loading="lazy"
+                                    fetchPriority="high"
                                     decoding="async"
                                     width="420"
                                     height="746"

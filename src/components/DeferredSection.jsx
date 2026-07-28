@@ -18,7 +18,7 @@ const DeferredSection = ({ children, minHeight = "350px", id }) => {
             observer.disconnect();
           }
         },
-        { rootMargin: '300px 0px 300px 0px' }
+        { rootMargin: '450px 0px 450px 0px' }
       );
 
       if (ref.current) observer.observe(ref.current);
