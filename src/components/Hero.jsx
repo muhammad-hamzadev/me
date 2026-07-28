@@ -64,7 +64,7 @@ const Hero = () => {
     return (
         <section id="home" className="min-h-screen w-full relative overflow-hidden flex items-center justify-center">
             {/* Background Glow Effect */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[1000px] sm:h-[1000px] rounded-full blur-[60px] sm:blur-[140px] pointer-events-none transition-colors duration-500 ${isLight ? 'bg-brand-500/25' : 'bg-brand-500/20'
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[1000px] sm:h-[1000px] rounded-full blur-[60px] sm:blur-[140px] pointer-events-none transition-colors duration-500 ${isLight ? 'bg-brand-500/10' : 'bg-brand-500/10'
                 }`}></div>
 
             {/* Inner Center Radial Light Source */}
@@ -72,8 +72,8 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500"
                 style={{
                     background: isLight
-                        ? 'radial-gradient(circle at 50% 45%, rgba(15, 118, 110, 0.25) 0%, rgba(17, 94, 89, 0.08) 50%, transparent 75%)'
-                        : 'radial-gradient(circle at 50% 45%, rgba(15, 118, 110, 0.22) 0%, rgba(13, 92, 86, 0.08) 45%, transparent 70%)'
+                        ? 'radial-gradient(circle at 50% 45%, rgba(15, 118, 110, 0.10) 0%, rgba(17, 94, 89, 0.03) 50%, transparent 75%)'
+                        : 'radial-gradient(circle at 50% 45%, rgba(15, 118, 110, 0.12) 0%, rgba(13, 92, 86, 0.04) 45%, transparent 70%)'
                 }}
             ></div>
 
