@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import logo from '../assets/hamzax-logo.png';
 import { pushPath } from '../utils/history';
@@ -169,11 +168,7 @@ const Navbar = () => {
                                 >
                                     {link.name}
                                     {isActive && (
-                                        <motion.div
-                                            layoutId="activeTab"
-                                            className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500"
-                                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                                        />
+                                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500 rounded-full transition-all duration-300" />
                                     )}
                                 </a>
                             );
