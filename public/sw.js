@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hamzax-static-v2';
+const CACHE_NAME = 'hamzax-static-v3';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -16,20 +16,27 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  
-  // Cache all same-origin requests (assets, images, scripts, styles)
+
   if (url.origin === location.origin && !url.pathname.startsWith('/api')) {
     event.respondWith(
-      caches.open(CACHE_NAME).then(async (cache) => {
-        const cachedResponse = await cache.match(event.request);
-        const fetchPromise = fetch(event.request).then((networkResponse) => {
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          // Serve from cache instantly (0ms latency), update cache in background
+          fetch(event.request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
+            }
+          }).catch(() => {});
+          return cachedResponse;
+        }
+
+        return fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
-            cache.put(event.request, networkResponse.clone());
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
           }
           return networkResponse;
-        }).catch(() => null);
-
-        return cachedResponse || fetchPromise;
+        });
       })
     );
   }
