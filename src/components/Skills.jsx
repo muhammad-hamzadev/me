@@ -73,10 +73,10 @@ const Skills = () => {
 
     const [isPaused, setIsPaused] = useState(false);
     const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [velocity, setVelocity] = useState(0);
+    const isDraggingRef = useRef(false);
+    const startXRef = useRef(0);
+    const startScrollLeftRef = useRef(0);
+    const velocityRef = useRef(0);
     const lastTimeRef = useRef(0);
     const lastXRef = useRef(0);
 
@@ -106,7 +106,7 @@ const Skills = () => {
 
         const startTimer = setTimeout(() => {
             const animate = () => {
-                if (!isPaused && !isDragging) {
+                if (!isPaused && !isDraggingRef.current) {
                     const halfWidth = halfWidthRef.current;
                     scrollPosRef.current += speed;
 
@@ -126,7 +126,7 @@ const Skills = () => {
             clearTimeout(startTimer);
             cancelAnimationFrame(animationFrameId);
         };
-    }, [isPaused, isDragging]);
+    }, [isPaused]);
 
     // Native non-passive wheel listener to allow preventDefault
     useEffect(() => {
@@ -151,7 +151,6 @@ const Skills = () => {
                 }
                 slider.scrollLeft = scrollPosRef.current;
             }
-            // If deltaX is 0 (vertical scroll only), do nothing - let page scroll normally
         };
 
         slider.addEventListener('wheel', onWheelNative, { passive: false });
@@ -159,67 +158,71 @@ const Skills = () => {
     }, []);
 
     const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
+        isDraggingRef.current = true;
+        startXRef.current = e.pageX;
+        startScrollLeftRef.current = scrollPosRef.current;
     };
 
     const handleMouseLeave = () => {
-        setIsDragging(false);
+        isDraggingRef.current = false;
     };
 
     const handleMouseUp = () => {
-        setIsDragging(false);
+        isDraggingRef.current = false;
     };
 
     const handleMouseMove = (e) => {
-        if (!isDragging) return;
+        if (!isDraggingRef.current) return;
         e.preventDefault();
         const slider = scrollRef.current;
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
+        if (!slider) return;
 
-        slider.scrollLeft = scrollLeft - walk;
+        const x = e.pageX;
+        const walk = (x - startXRef.current) * 2;
+        const halfWidth = halfWidthRef.current;
+
+        scrollPosRef.current = startScrollLeftRef.current - walk;
 
         if (halfWidth > 0) {
-            if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-            if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+            if (scrollPosRef.current >= halfWidth) scrollPosRef.current -= halfWidth;
+            if (scrollPosRef.current <= 0) scrollPosRef.current += halfWidth;
         }
+        slider.scrollLeft = scrollPosRef.current;
     };
 
-    // Touch event handlers for mobile with momentum
+    // Touch event handlers for mobile with momentum (0 React Re-renders!)
     const handleTouchStart = (e) => {
-        setIsDragging(true);
-        setVelocity(0);
+        isDraggingRef.current = true;
+        velocityRef.current = 0;
         const touch = e.touches[0];
-        const x = touch.pageX - scrollRef.current.offsetLeft;
-        setStartX(x);
-        setScrollLeft(scrollRef.current.scrollLeft);
+        const x = touch.pageX;
+        startXRef.current = x;
+        startScrollLeftRef.current = scrollPosRef.current;
         lastTimeRef.current = Date.now();
         lastXRef.current = x;
     };
 
     const handleTouchEnd = () => {
-        setIsDragging(false);
+        isDraggingRef.current = false;
         // Apply momentum scrolling
-        if (Math.abs(velocity) > 0.5) {
-            let currentVelocity = velocity;
+        if (Math.abs(velocityRef.current) > 0.5) {
+            let currentVelocity = velocityRef.current;
             const deceleration = 0.95;
             const momentumScroll = () => {
                 if (Math.abs(currentVelocity) < 0.1) return;
                 const slider = scrollRef.current;
                 if (!slider) return;
 
-                const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
-                slider.scrollLeft -= currentVelocity;
+                const halfWidth = halfWidthRef.current;
+                scrollPosRef.current -= currentVelocity;
                 currentVelocity *= deceleration;
 
                 // Handle infinite wrap
                 if (halfWidth > 0) {
-                    if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-                    if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+                    if (scrollPosRef.current >= halfWidth) scrollPosRef.current -= halfWidth;
+                    if (scrollPosRef.current <= 0) scrollPosRef.current += halfWidth;
                 }
+                slider.scrollLeft = scrollPosRef.current;
 
                 requestAnimationFrame(momentumScroll);
             };
@@ -228,31 +231,33 @@ const Skills = () => {
     };
 
     const handleTouchMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault(); // Prevent default touch scrolling
+        if (!isDraggingRef.current) return;
 
         const touch = e.touches[0];
         const slider = scrollRef.current;
-        const x = touch.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        const halfWidth = halfWidthRef.current || (slider.scrollWidth / 2);
+        if (!slider) return;
 
-        slider.scrollLeft = scrollLeft - walk;
+        const x = touch.pageX;
+        const walk = (x - startXRef.current) * 2;
+        const halfWidth = halfWidthRef.current;
+
+        scrollPosRef.current = startScrollLeftRef.current - walk;
 
         // Calculate velocity for momentum
         const now = Date.now();
         const timeDelta = now - lastTimeRef.current;
         if (timeDelta > 0) {
             const newVelocity = (x - lastXRef.current) / timeDelta * 20;
-            setVelocity(newVelocity);
+            velocityRef.current = newVelocity;
         }
         lastTimeRef.current = now;
         lastXRef.current = x;
 
         if (halfWidth > 0) {
-            if (slider.scrollLeft >= halfWidth) slider.scrollLeft -= halfWidth;
-            if (slider.scrollLeft <= 0) slider.scrollLeft += halfWidth;
+            if (scrollPosRef.current >= halfWidth) scrollPosRef.current -= halfWidth;
+            if (scrollPosRef.current <= 0) scrollPosRef.current += halfWidth;
         }
+        slider.scrollLeft = scrollPosRef.current;
     };
 
     const skillCategories = [
