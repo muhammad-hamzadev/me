@@ -64,7 +64,7 @@ const Hero = () => {
     return (
         <section id="home" className="h-screen w-full relative overflow-hidden">
             {/* Background Glow Effect */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full blur-[140px] pointer-events-none transition-colors duration-500 ${isLight ? 'bg-brand-500/30' : 'bg-brand-500/15'
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[1000px] sm:h-[1000px] rounded-full blur-[60px] sm:blur-[140px] pointer-events-none transition-colors duration-500 ${isLight ? 'bg-brand-500/30' : 'bg-brand-500/15'
                 }`}></div>
 
             <div className="w-full h-full relative z-10">
