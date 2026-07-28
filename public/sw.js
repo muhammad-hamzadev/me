@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hamzax-static-v3';
+const CACHE_NAME = 'hamzax-static-v4';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -17,26 +17,18 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  if (url.origin === location.origin && !url.pathname.startsWith('/api')) {
+  if (url.origin === location.origin && (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/images/'))) {
     event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cachedResponse = await cache.match(event.request);
         if (cachedResponse) {
-          // Serve from cache instantly (0ms latency), update cache in background
-          fetch(event.request).then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
-            }
-          }).catch(() => {});
           return cachedResponse;
         }
-
-        return fetch(event.request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-          }
-          return networkResponse;
-        });
+        const networkResponse = await fetch(event.request);
+        if (networkResponse && networkResponse.status === 200) {
+          cache.put(event.request, networkResponse.clone());
+        }
+        return networkResponse;
       })
     );
   }
