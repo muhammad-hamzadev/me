@@ -7,10 +7,10 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import DeferredSection from './components/DeferredSection';
 import useSEO from './hooks/useSEO';
 import { getCurrentPath, subscribeToPath } from './utils/history';
 
-// Only lazy load secondary sub-pages (/blog) to ensure 0 layout shift and 100% score on BOTH Desktop and Mobile
 const BlogList = lazy(() => import('./components/BlogList'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
 
@@ -55,10 +55,18 @@ function App() {
     return (
       <>
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <DeferredSection id="about" minHeight="500px">
+          <About />
+        </DeferredSection>
+        <DeferredSection id="skills" minHeight="600px">
+          <Skills />
+        </DeferredSection>
+        <DeferredSection id="projects" minHeight="600px">
+          <Projects />
+        </DeferredSection>
+        <DeferredSection id="contact" minHeight="500px">
+          <Contact />
+        </DeferredSection>
       </>
     );
   };
@@ -70,7 +78,9 @@ function App() {
         <main className="overflow-x-hidden">
           {renderContent()}
         </main>
-        <Footer />
+        <DeferredSection minHeight="200px">
+          <Footer />
+        </DeferredSection>
       </div>
     </ThemeProvider>
   );
