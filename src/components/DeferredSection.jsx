@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
 const DeferredSection = ({ children, minHeight = "350px", id }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  // On Desktop (width >= 768px), initialize as visible immediately to prevent layout shifts & ensure 100% Desktop score
+  const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
+  const [isVisible, setIsVisible] = useState(isDesktop);
   const ref = useRef(null);
 
   useEffect(() => {
-    // If IntersectionObserver is supported, render component when approaching 300px from viewport
+    if (isVisible) return;
+
+    // On Mobile (width < 768px), mount when approaching viewport to eliminate 4x CPU main-thread work
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -14,7 +18,7 @@ const DeferredSection = ({ children, minHeight = "350px", id }) => {
             observer.disconnect();
           }
         },
-        { rootMargin: '350px 0px 350px 0px' }
+        { rootMargin: '300px 0px 300px 0px' }
       );
 
       if (ref.current) observer.observe(ref.current);
@@ -22,7 +26,7 @@ const DeferredSection = ({ children, minHeight = "350px", id }) => {
     } else {
       setIsVisible(true);
     }
-  }, []);
+  }, [isVisible]);
 
   return (
     <div id={id} ref={ref} style={{ minHeight: isVisible ? 'auto' : minHeight }}>
