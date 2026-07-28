@@ -5,21 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) - Deferred load for 100/100 performance & 0 TBT -->
+  <!-- Google tag (gtag.js) & Service Worker - Deferred load for 100/100 performance & 0 TBT -->
   <script>
     window.addEventListener('load', function() {
       var script = document.createElement('script');
       script.src = 'https://www.googletagmanager.com/gtag/js?id=G-WYXP48MVQ4';
+      script.async = true;
       document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){window.dataLayer.push(arguments);};
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-WYXP48MVQ4');
 
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js').catch(function() {});
       }
-    }
-
-    setTimeout(loadDeferredScripts, 6000);
-    ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(ev) {
-      window.addEventListener(ev, loadDeferredScripts, { once: true, passive: true });
     });
   </script>
 
@@ -48,11 +49,9 @@
     }(window.location));
   </script>
 
-  <!-- Preconnect & Preload for 100/100 LCP Performance -->
+  <!-- Preconnect for 100/100 Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="modulepreload" href="/src/main.jsx" />
-  <link rel="preload" href="/images/muhammad-hamza-profile.jpg" as="image" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
