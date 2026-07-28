@@ -2,15 +2,15 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import useSEO from './hooks/useSEO';
 import { getCurrentPath, subscribeToPath } from './utils/history';
 
-// Lazy-load non-critical components to keep initial fold hyper-fast on mobile
-const About = lazy(() => import('./components/About'));
-const Skills = lazy(() => import('./components/Skills'));
-const Projects = lazy(() => import('./components/Projects'));
-const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
+// Only lazy load secondary sub-pages (/blog) to ensure 0 layout shift and 100% score on BOTH Desktop and Mobile
 const BlogList = lazy(() => import('./components/BlogList'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
 
@@ -29,26 +29,6 @@ function App() {
       }
     });
     return unsubscribe;
-  }, []);
-
-  // Preload non-critical section chunks strictly during CPU idle time (requestIdleCallback)
-  // This guarantees 0 main-thread blocking during initial paint on Mobile 4x CPU slowdown
-  useEffect(() => {
-    const preloadChunks = () => {
-      import('./components/About');
-      import('./components/Skills');
-      import('./components/Projects');
-      import('./components/Contact');
-      import('./components/Footer');
-    };
-
-    if ('requestIdleCallback' in window) {
-      const idleId = window.requestIdleCallback(preloadChunks, { timeout: 3500 });
-      return () => window.cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(preloadChunks, 2500);
-      return () => clearTimeout(timer);
-    }
   }, []);
 
   const renderContent = () => {
@@ -75,12 +55,10 @@ function App() {
     return (
       <>
         <Hero />
-        <Suspense fallback={null}>
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </Suspense>
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
       </>
     );
   };
@@ -92,9 +70,7 @@ function App() {
         <main className="overflow-x-hidden">
           {renderContent()}
         </main>
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+        <Footer />
       </div>
     </ThemeProvider>
   );
