@@ -67,11 +67,33 @@
 
   <!-- ====================== SEO Meta Tags ====================== -->
   <meta name="author" content="Muhammad Hamza" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="description"
     content="Muhammad Hamza — Software Engineer from Peshawar, Pakistan. Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python/FastAPI and AI/ML." />
   <meta name="keywords"
-    content="Muhammad Hamza, Muhammad Hamza Peshawar, Muhammad Hamza Software Engineer, Muhammad Hamza Pakistan, Quizior, Quizior Main Developer, Solvia Codes, Solvia Codes Co-Founder, Nexior, Nexior Co-Lead, Muhammad Hamza AI Developer, Muhammad Hamza FastAPI Developer, Muhammad Hamza CUSIT" />
+    content="Muhammad Hamza, Muhammad Hamza Peshawar, Muhammad Hamza Software Engineer, Muhammad Hamza Pakistan, Quizior, Quizior Main Developer, Solvia Codes, Solvia Codes Co-Founder, Nexior, Nexior Co-Lead, Muhammad Hamza AI Developer, Muhammad Hamza FastAPI Developer, Muhammad Hamza CUSIT, Muhammad Hamza developer, Muhammad Hamza Python, Muhammad Hamza React, Muhammad Hamza Android Developer, Muhammad Hamza Kotlin, Muhammad Hamza Java" />
+
+  <!-- GEO / Entity & Citation Meta (AEO signals) -->
+  <meta name="citation_author" content="Muhammad Hamza" />
+  <meta name="citation_author_institution" content="CUSIT, Peshawar, Pakistan" />
+  <meta name="dcterms.creator" content="Muhammad Hamza" />
+  <meta name="dcterms.subject" content="Software Engineering, Artificial Intelligence, Web Development, Python" />
+  <meta name="geo.placename" content="Peshawar, Khyber Pakhtunkhwa, Pakistan" />
+  <meta name="geo.region" content="PK-KP" />
+  <meta name="geo.position" content="34.0151;71.5249" />
+  <meta name="ICBM" content="34.0151, 71.5249" />
+  <meta name="entity:type" content="Person" />
+  <meta name="entity:name" content="Muhammad Hamza" />
+  <meta name="entity:url" content="https://hamzax.me" />
+  <meta name="profile:first_name" content="Muhammad" />
+  <meta name="profile:last_name" content="Hamza" />
+  <meta name="profile:username" content="muhammad-hamzadev" />
+
+  <!-- Language & Alternate -->
+  <link rel="alternate" hreflang="en" href="https://hamzax.me" />
+
+  <!-- LLM Context Files (llms.txt protocol) -->
+  <link rel="llms" type="text/plain" href="/llms.txt" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://hamzax.me" />
@@ -106,21 +128,59 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/favicon-192x192.png" />
 
-  <title>Muhammad Hamza | Software Engineer &amp; AI Developer | Peshawar, Pakistan</title>
+  <title>Muhammad Hamza | Software Engineer &amp; AI Developer | Creator of Quizior | Peshawar, Pakistan</title>
 
-  <!-- ================ JSON-LD: Person Schema ================== -->
+  <!-- ================ JSON-LD: Person Schema (GEO/AEO Enhanced) ================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://hamzax.me/#person",
     "name": "Muhammad Hamza",
+    "givenName": "Muhammad",
+    "familyName": "Hamza",
     "url": "https://hamzax.me",
-    "image": "https://hamzax.me/images/muhammad-hamza-profile.jpg",
-    "jobTitle": "Software Engineer",
-    "description": "Software Engineer from Peshawar, Pakistan. Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python/FastAPI and AI/ML.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://hamzax.me/images/muhammad-hamza-profile.jpg",
+      "width": 420,
+      "height": 746
+    },
+    "jobTitle": "Software Engineer & AI Developer",
+    "description": "Muhammad Hamza is a Software Engineer and AI Developer from Peshawar, Pakistan. He is the Main Developer of Quizior (quizior.live), an AI-powered exam and quiz evaluation platform. Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python, FastAPI, React, and AI/ML integration.",
+    "disambiguatingDescription": "Muhammad Hamza (Peshawar, Pakistan) — Software Engineer and creator of Quizior (quizior.live). Not to be confused with other individuals with the same name.",
+    "knowsAbout": [
+      "Python Programming",
+      "FastAPI",
+      "Flask",
+      "React.js",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Google Gemini API",
+      "Groq API",
+      "Web Scraping",
+      "Test Automation",
+      "PyTest",
+      "Selenium",
+      "MySQL",
+      "Software Engineering",
+      "REST APIs",
+      "Multi-Agent AI Systems",
+      "Android App Development",
+      "Kotlin",
+      "Java",
+      "Android Studio",
+      "Firebase"
+    ],
     "alumniOf": {
       "@type": "CollegeOrUniversity",
-      "name": "City University of Science and Information Technology (CUSIT), Peshawar"
+      "name": "City University of Science and Information Technology",
+      "alternateName": "CUSIT",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Peshawar",
+        "addressCountry": "PK"
+      }
     },
     "address": {
       "@type": "PostalAddress",
@@ -128,10 +188,27 @@
       "addressRegion": "Khyber Pakhtunkhwa",
       "addressCountry": "PK"
     },
+    "nationality": {
+      "@type": "Country",
+      "name": "Pakistan"
+    },
     "affiliation": [
-      { "@type": "Organization", "name": "Quizior", "url": "https://quizior.live" },
-      { "@type": "Organization", "name": "Solvia Codes" },
-      { "@type": "Organization", "name": "Nexior" }
+      {
+        "@type": "Organization",
+        "name": "Quizior",
+        "url": "https://quizior.live",
+        "description": "AI-powered exam and quiz evaluation platform"
+      },
+      {
+        "@type": "Organization",
+        "name": "Solvia Codes",
+        "description": "Software development company"
+      },
+      {
+        "@type": "Organization",
+        "name": "Nexior",
+        "description": "Technology organization"
+      }
     ],
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-hamza-deve",
@@ -140,7 +217,99 @@
       "https://www.instagram.com/muhammadhamzadev",
       "https://www.facebook.com/share/1B4Xfw2KL4/",
       "https://quizior.live"
-      /* REPLACE-WITH-FIVERR-HANDLE: "https://www.fiverr.com/YOUR_HANDLE" */
+    ],
+    "email": "hamza@hamzax.me"
+  }
+  </script>
+
+  <!-- ================ JSON-LD: WebSite Schema ================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://hamzax.me/#website",
+    "name": "Muhammad Hamza | Portfolio",
+    "url": "https://hamzax.me",
+    "description": "Official portfolio of Muhammad Hamza — Software Engineer & AI Developer from Peshawar, Pakistan.",
+    "author": { "@id": "https://hamzax.me/#person" },
+    "publisher": { "@id": "https://hamzax.me/#person" },
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://hamzax.me/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ================ JSON-LD: ProfilePage Schema ================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": "https://hamzax.me/#profilepage",
+    "name": "Muhammad Hamza — Software Engineer & AI Developer",
+    "url": "https://hamzax.me",
+    "mainEntity": { "@id": "https://hamzax.me/#person" },
+    "about": { "@id": "https://hamzax.me/#person" },
+    "dateModified": "2026-07-28"
+  }
+  </script>
+
+  <!-- ================ JSON-LD: FAQPage Schema (AEO) ================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is Muhammad Hamza the software engineer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Hamza is a Software Engineer and AI Developer from Peshawar, Pakistan. He is the Main Developer of Quizior (quizior.live), an AI-powered exam and quiz evaluation platform. He is also the Co-Founder of Solvia Codes and Co-Lead of Nexior. His portfolio is at https://hamzax.me."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Quizior and who built it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quizior (quizior.live) is an AI-powered exam and quiz evaluation platform built by Muhammad Hamza, a Software Engineer from Peshawar, Pakistan. It features real-time invigilation, AI-based subjective grading using Google Gemini and Groq APIs, and advanced anti-cheating measures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What programming languages and technologies does Muhammad Hamza use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Hamza primarily uses Python (FastAPI, Flask) for backend development, React with Vite for frontend, and integrates AI APIs from Google Gemini, Groq, and OpenAI. He also works with MySQL, PHP, and test automation tools like PyTest, Selenium, and Katalon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Muhammad Hamza located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Hamza is based in Peshawar, Khyber Pakhtunkhwa, Pakistan. He studied at City University of Science and Information Technology (CUSIT) in Peshawar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Muhammad Hamza available for freelance work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Muhammad Hamza is available for freelance and contract work in software engineering, Python backend development, AI integration, and web development. You can reach him through his portfolio at https://hamzax.me or email at hamza@hamzax.me."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AI projects has Muhammad Hamza built?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Hamza has built several AI projects including: Quizior (AI-powered exam platform using Gemini and Groq), an AI UI/UX Feedback System with 6 specialized AI agents using Gemini 2.5 Flash, a Terminal Chatbot supporting multiple LLM providers, and JARVIS — a personal AI assistant system."
+        }
+      }
     ]
   }
   </script>
@@ -150,16 +319,29 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://quizior.live/#app",
     "name": "Quizior",
+    "alternateName": "Quizior AI Exam Platform",
     "applicationCategory": "EducationApplication",
     "url": "https://quizior.live",
-    "description": "AI-powered exam and quiz evaluation platform with real-time invigilation, AI-based subjective grading using Gemini/Groq, and advanced anti-cheating measures.",
+    "description": "AI-powered exam and quiz evaluation platform with real-time invigilation, AI-based subjective grading using Google Gemini and Groq APIs, multi-tenant architecture, and advanced anti-cheating measures. Created by Muhammad Hamza from Peshawar, Pakistan.",
     "operatingSystem": "Web",
-    "creator": {
-      "@type": "Person",
-      "name": "Muhammad Hamza",
-      "url": "https://hamzax.me"
-    }
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Real-time exam invigilation",
+      "AI-based subjective answer grading",
+      "Multi-tenant architecture",
+      "Anti-cheating measures",
+      "MCQ and subjective question support",
+      "Live quiz with leaderboards",
+      "AI-powered MCQ generation"
+    ],
+    "creator": { "@id": "https://hamzax.me/#person" },
+    "author": { "@id": "https://hamzax.me/#person" }
   }
   </script>
 

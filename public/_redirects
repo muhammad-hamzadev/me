@@ -1,0 +1,6 @@
+# 200 OK Direct Serves (Eliminates 301 Moved Permanently Redirects)
+/blog                 /blog.html                 200
+/blog/                /blog/index.html           200
+/blog/:slug           /blog/:slug.html           200
+/blog/:slug/          /blog/:slug/index.html     200
+/*                     /index.html                200

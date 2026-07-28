@@ -1,6 +1,92 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
+# ===== AI / LLM Crawlers - Explicitly Allowed =====
+
+# OpenAI (ChatGPT, GPT-4, GPT-o series)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google (Gemini, AI Overviews / SGE, Bard)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Microsoft (Bing AI, Copilot)
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl (used to train most LLMs)
+User-agent: CCBot
+Allow: /
+
+# Bytespider (ByteDance / TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# Apple Applebot (Siri, Apple Intelligence)
+User-agent: Applebot
+Allow: /
+
+# Amazon Alexa / Alexa AI
+User-agent: Amazonbot
+Allow: /
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+
+# Diffbot (knowledge graph AI)
+User-agent: Diffbot
+Allow: /
+
+# ===== Sitemap & LLM Context Files =====
 Sitemap: https://hamzax.me/sitemap.xml
 Sitemap: https://hamzax.me/image-sitemap.xml
+
+# LLM Context Files (standard llms.txt protocol)
+# https://hamzax.me/llms.txt
+# https://hamzax.me/llms-full.txt

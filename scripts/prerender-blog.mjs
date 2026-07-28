@@ -18,15 +18,16 @@ function prerender() {
   }
   const indexHtml = fs.readFileSync(indexPath, 'utf-8');
 
-  // 1. Create dist/blog/index.html
+  // 1. Create dist/blog.html and dist/blog/index.html
   const blogDir = path.join(DIST_DIR, 'blog');
   if (!fs.existsSync(blogDir)) {
     fs.mkdirSync(blogDir, { recursive: true });
   }
+  fs.writeFileSync(path.join(DIST_DIR, 'blog.html'), indexHtml, 'utf-8');
   fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml, 'utf-8');
-  console.log('✅ Prerendered dist/blog/index.html');
+  console.log('✅ Prerendered dist/blog.html & dist/blog/index.html');
 
-  // 2. Read slugs from src/posts and create dist/blog/[slug]/index.html
+  // 2. Read slugs from src/posts and create dist/blog/[slug].html + dist/blog/[slug]/index.html
   if (!fs.existsSync(POSTS_DIR)) return;
   const files = fs.readdirSync(POSTS_DIR);
 
@@ -36,12 +37,17 @@ function prerender() {
       const match = fileContent.match(/slug:\s*["']?([^"'\r\n]+)["']?/);
       if (match && match[1]) {
         const slug = match[1].trim();
+
+        // Standalone HTML file for /blog/[slug] (0-redirect 200 OK)
+        fs.writeFileSync(path.join(blogDir, `${slug}.html`), indexHtml, 'utf-8');
+
+        // Directory index HTML file for /blog/[slug]/
         const postDir = path.join(blogDir, slug);
         if (!fs.existsSync(postDir)) {
           fs.mkdirSync(postDir, { recursive: true });
         }
         fs.writeFileSync(path.join(postDir, 'index.html'), indexHtml, 'utf-8');
-        console.log(`✅ Prerendered dist/blog/${slug}/index.html`);
+        console.log(`✅ Prerendered dist/blog/${slug}.html & dist/blog/${slug}/index.html`);
       }
     }
   });

@@ -24,8 +24,13 @@ import {
     SiPytest,
     SiQt,
     SiScrapy,
-    SiSelenium
+    SiSelenium,
+    SiAndroid,
+    SiKotlin,
+    SiAndroidstudio,
+    SiFirebase
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import { VscCode, VscRemote, VscChecklist, VscShield } from 'react-icons/vsc';
 import { BsBootstrapFill } from 'react-icons/bs';
 import { TbApi, TbDatabase, TbAutomation, TbBrowser, TbDeviceDesktop, TbCloudSearch, TbCode } from 'react-icons/tb';
@@ -68,6 +73,11 @@ const Skills = () => {
             title: ['Full web', 'development'],
             desc: 'I create complete, scalable and robust web solutions.',
             icon: TbCode
+        },
+        {
+            title: ['Android', 'app development'],
+            desc: 'I build native Android apps using Kotlin/Java with modern architecture.',
+            icon: SiAndroid
         }
     ];
 
@@ -306,6 +316,16 @@ const Skills = () => {
                 { name: 'BeautifulSoup', icon: VscCode, color: '#61DAFB' },
                 { name: 'PyQt5', icon: SiQt, color: '#41CD52' },
                 { name: 'Selenium', icon: SiSelenium, color: '#43B02A' },
+            ]
+        },
+        {
+            title: 'Android Development',
+            skills: [
+                { name: 'Android', icon: SiAndroid, color: '#3DDC84' },
+                { name: 'Kotlin', icon: SiKotlin, color: '#7F52FF' },
+                { name: 'Java', icon: FaJava, color: '#ED8B00' },
+                { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
+                { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
             ]
         }
     ];

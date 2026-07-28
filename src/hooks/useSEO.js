@@ -34,6 +34,11 @@ const SEO_CONFIG = {
     description:
       'Get in touch with Muhammad Hamza — Software Engineer from Peshawar, Pakistan. Available for freelance work and collaboration.',
   },
+  faq: {
+    title: 'FAQ | Muhammad Hamza — Software Engineer & AI Developer',
+    description:
+      'Answers to frequently asked questions about Muhammad Hamza — creator of Quizior, Software Engineer from Peshawar, Pakistan. Available for freelance work globally.',
+  },
 };
 
 /**

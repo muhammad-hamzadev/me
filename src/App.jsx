@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DeferredSection from './components/DeferredSection';
+import FAQSection from './components/FAQSection';
 import useSEO from './hooks/useSEO';
 import { getCurrentPath, subscribeToPath } from './utils/history';
 
@@ -66,6 +67,9 @@ function App() {
         </DeferredSection>
         <DeferredSection id="contact" minHeight="500px">
           <Contact />
+        </DeferredSection>
+        <DeferredSection id="faq" minHeight="400px">
+          <FAQSection />
         </DeferredSection>
       </>
     );

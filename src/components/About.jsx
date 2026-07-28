@@ -59,7 +59,7 @@ const About = () => {
                                 My current skill set includes Python development, web development, web scraping, and test automation. I have hands-on experience with tools and frameworks such as PyTest, JUnit, Katalon, and BrowserStack, along with handling structured data formats like JSON. I'm comfortable designing and testing web solutions, ensuring functionality, reliability, and cross-browser compatibility.
                             </p>
                             <p>
-                                I'm actively expanding my expertise into Android application development, advanced automation, and intelligent systems. I have a growing interest in artificial intelligence and am currently exploring AI concepts, agent-based systems, and their practical applications in real-world software solutions — with a focus on continuous learning and experimentation.
+                                I also build native <strong>Android applications</strong> using Kotlin and Java, leveraging Android Studio, Jetpack components, and Firebase for backend services. Alongside this, I'm actively deepening my expertise in AI agent-based systems, advanced automation, and intelligent software — with a focus on shipping products that solve real problems.
                             </p>
                         </div>
                     </motion.div>

@@ -1,4 +1,13 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/blog/", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/blog/:slug/", "destination": "/blog/:slug/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

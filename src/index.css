@@ -5,21 +5,21 @@
 
 :root {
   /* Light theme colors */
-  --bg-main: #f7f9fb;
-  --bg-secondary: #eef2f6;
+  --bg-main: #f6f9f8;
+  --bg-secondary: #eef3f1;
   --bg-surface: #ffffff;
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-muted: #475569;
-  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-bg: rgba(255, 255, 255, 0.70);
   --card-border: rgba(15, 23, 42, 0.08);
 }
 
 .dark {
   /* Dark theme colors - High contrast compliance */
-  --bg-main: #0b0f14;
-  --bg-secondary: #121821;
-  --bg-surface: #181f2b;
+  --bg-main: #070b10;
+  --bg-secondary: #0e141d;
+  --bg-surface: #141c27;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;

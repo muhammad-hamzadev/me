@@ -87,7 +87,7 @@ const Navbar = () => {
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
-            const navbarHeight = 80;
+            const navbarHeight = 72;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
@@ -118,8 +118,8 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? 'glass shadow-lg py-3'
-                : 'bg-transparent py-5'
+                ? 'glass shadow-lg py-2'
+                : 'bg-transparent py-3.5'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,17 +135,17 @@ const Navbar = () => {
                                 scrollToSection(e, '#home');
                             }
                         }}
-                        className="flex items-center gap-1 group"
+                        className="flex items-center group"
                     >
                         <img
                             src={logo}
                             alt="Muhammad Hamza Logo"
-                            width="80"
-                            height="80"
+                            width="56"
+                            height="56"
                             decoding="async"
-                            className="w-20 h-20 object-contain group-hover:scale-110 transition-transform"
+                            className="w-14 h-14 object-contain group-hover:scale-110 transition-transform"
                         />
-                        <span className="text-3xl font-bold text-primary -ml-5">
+                        <span className="text-2xl sm:text-3xl font-bold text-primary -ml-4">
                             amza
                         </span>
                     </a>
