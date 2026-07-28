@@ -1,47 +1,49 @@
 // Framer Motion animation variants for scroll reveals
-// Performance-optimized with opacity + y transforms only
+// Device-adaptive: Instant rendering on Mobile (0 CPU overhead), rich stagger on Desktop
+
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 export const fadeIn = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: isMobile ? 1 : 0 },
     visible: {
         opacity: 1,
         transition: {
-            duration: 0.5,
+            duration: isMobile ? 0 : 0.4,
             ease: "easeOut"
         }
     }
 };
 
 export const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 20 },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.6,
+            duration: isMobile ? 0 : 0.4,
             ease: "easeOut"
         }
     }
 };
 
 export const staggerContainer = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: isMobile ? 1 : 0 },
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2
+            staggerChildren: isMobile ? 0 : 0.08,
+            delayChildren: isMobile ? 0 : 0.1
         }
     }
 };
 
 export const staggerItem = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 15 },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.5,
+            duration: isMobile ? 0 : 0.4,
             ease: "easeOut"
         }
     }
