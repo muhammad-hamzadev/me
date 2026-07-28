@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import useSEO from './hooks/useSEO';
 import { getCurrentPath, subscribeToPath } from './utils/history';
 
-// Lazy-load non-critical components to eliminate long main-thread tasks on mobile (2.2s -> 0.1s)
+// Lazy-load non-critical components to keep initial fold hyper-fast on mobile
 const About = lazy(() => import('./components/About'));
 const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
@@ -29,6 +29,18 @@ function App() {
       }
     });
     return unsubscribe;
+  }, []);
+
+  // Preload non-critical section chunks in background idle time for 100% Desktop performance score
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      import('./components/About');
+      import('./components/Skills');
+      import('./components/Projects');
+      import('./components/Contact');
+      import('./components/Footer');
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const renderContent = () => {
