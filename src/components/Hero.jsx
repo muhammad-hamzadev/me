@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiDownload } from 'react-icons/hi';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -105,7 +104,9 @@ const Hero = () => {
                                 className="px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-brand-500/30"
                             >
                                 Download Resume
-                                <HiDownload aria-hidden="true" />
+                                <svg className="w-5 h-5 ml-1 inline-block" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
                             </button>
                             <button
                                 onClick={() => scrollToSection('#contact')}
