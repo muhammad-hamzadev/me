@@ -14,30 +14,30 @@ async function optimizeImages() {
         {
             file: path.join(rootDir, 'src', 'assets', 'muhammad-hamza-profile.webp'),
             type: 'webp',
-            width: 800,
-            quality: 80
+            width: 450,
+            quality: 75
         },
         {
             file: path.join(rootDir, 'src', 'assets', 'muhammad-hamza-profile.png'),
             type: 'png',
-            width: 800
+            width: 450
         },
         {
             file: path.join(rootDir, 'src', 'assets', 'hamzax-logo.png'),
             type: 'png',
-            width: 160
+            width: 120
         },
         {
             file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.jpg'),
             type: 'jpeg',
-            width: 800,
-            quality: 80
+            width: 450,
+            quality: 75
         },
         {
             file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.webp'),
             type: 'webp',
-            width: 800,
-            quality: 80
+            width: 450,
+            quality: 75
         },
         {
             file: path.join(rootDir, 'public', 'images', 'blog', 'quizior-mcq-cover.png'),

@@ -8,35 +8,35 @@ const Projects = () => {
             title: 'QuizAura - AI-Powered Quiz System',
             description: 'A comprehensive multi-tenant AI-assisted secure quiz platform with real-time invigilation, AI-based subjective grading using Gemini/Groq/Perplexity, and advanced anti-cheating measures.',
             tech: ['PHP', 'MySQL', 'Python', 'AI APIs', 'Multi-Tenant'],
-            image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=75',
+            image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=420&q=50&fm=webp',
             github: 'https://github.com/muhammad-hamzadev/Ai_Based_Quiz_App.git'
         },
         {
             title: 'Attendance System',
             description: 'Desktop attendance management app with teacher login, class selection, attendance marking with color-coded highlighting, session timeout, auto sign-out, and local JSON persistence for data storage.',
             tech: ['Python 3', 'Tkinter', 'JSON'],
-            image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=75',
+            image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=420&q=50&fm=webp',
             github: 'https://github.com/muhammad-hamzadev/Attendane_system_app.git' // Placeholder - will be updated with actual link
         },
         {
             title: 'TODO Web App',
             description: 'A clean Flask-based TODO list application with SQLite storage, add/delete task functionality, duplicate prevention, flash messages, and responsive Bootstrap UI with automatic database creation.',
             tech: ['Python 3', 'Flask', 'SQLite', 'Bootstrap'],
-            image: 'https://images.unsplash.com/photo-1598791318878-10e76d178023?auto=format&fit=crop&w=600&q=75',
+            image: 'https://images.unsplash.com/photo-1598791318878-10e76d178023?auto=format&fit=crop&w=420&q=50&fm=webp',
             github: 'https://github.com/muhammad-hamzadev/Todo_App.git' // Placeholder - will be updated with actual link
         },
         {
             title: 'Terminal Chatbot',
             description: 'A command-line AI chatbot using Google Gemini 1.5 Flash with interactive terminal interface, conversation logging, graceful exit handling, and support for multiple AI providers (Gemini/DeepSeek/Grok).',
             tech: ['Python 3', 'Google Gemini API', 'AI Integration'],
-            image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=75',
+            image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=420&q=50&fm=webp',
             github: 'https://github.com/muhammad-hamzadev/terminal_chatbot.git'
         },
         {
             title: 'AI UI/UX Feedback System',
             description: 'Advanced multi-agent design auditor powered by Gemini 2.5 Flash. Features 6 specialized AI agents analyzing UI/UX, design aesthetics, copywriting, conversion optimization, with glassmorphism interface and dynamic particles.',
             tech: ['Python', 'Flask', 'MySQL', 'Nano Banana', 'Multi-Agent AI'],
-            image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=75',
+            image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=420&q=50&fm=webp',
             github: 'https://github.com/muhammad-hamzadev/UI_FEEDBACK_SYSTEM.git'
         }
     ];

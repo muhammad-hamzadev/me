@@ -18,7 +18,8 @@ export default defineConfig({
             if (id.includes('react-icons')) return 'vendor-icons';
             if (id.includes('framer-motion')) return 'vendor-framer';
             if (id.includes('marked')) return 'vendor-marked';
-            return 'vendor';
+            if (id.includes('react') || id.includes('react-dom')) return 'vendor-react';
+            return 'vendor-utils';
           }
         }
       }
