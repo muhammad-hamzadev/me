@@ -4,40 +4,40 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    id: 'faq-who-is',
-    question: 'Who is Muhammad Hamza?',
+    id: 'faq-opportunities',
+    question: 'What kind of opportunities are you open to?',
     answer:
-      'Muhammad Hamza is a Software Engineer and AI Developer from Peshawar, Pakistan. He is the Main Developer of Quizior (quizior.live), the developer behind a QAC-based college ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa, and Co-Founder of Solvia Codes.',
+      "I'm open to software engineering roles, internships, and selected freelance or contract work. My best fit is full-stack web development, Python backend work, or a product that uses AI in a practical way.",
   },
   {
-    id: 'faq-quizior',
-    question: 'What is Quizior and who built it?',
+    id: 'faq-work',
+    question: 'What do you usually build?',
     answer:
-      'Quizior (quizior.live) is an AI-powered exam and quiz evaluation platform built by Muhammad Hamza. It features real-time invigilation, AI-based subjective grading using Google Gemini and Groq APIs, multi-tenant architecture, and advanced anti-cheating measures including tab-switch detection and fullscreen enforcement.',
+      'Most of my recent work has been web platforms for education and public-sector teams. That includes the HED college ranking system, AiVerse for an IELTS academy, and Quizior for running and evaluating quizzes.',
   },
   {
     id: 'faq-skills',
-    question: 'What technologies does Muhammad Hamza specialize in?',
+    question: 'Which technologies do you work with?',
     answer:
-      'Muhammad Hamza primarily works with Python (FastAPI, Flask), PostgreSQL and MySQL for backend development, and React, Next.js, and Vite for frontend work. He also builds native Android apps using Kotlin and Android Studio, and works with web scraping, test automation, and multi-agent AI systems.',
+      'For web work, I mainly use React or Next.js on the frontend and Python, FastAPI, Flask, or PHP on the backend. I work with PostgreSQL, MySQL, and SQLite, and I also have experience with Kotlin, Firebase, testing, automation, and AI integrations.',
   },
   {
-    id: 'faq-freelance',
-    question: 'Is Muhammad Hamza available for freelance or contract work?',
+    id: 'faq-real-projects',
+    question: 'Have you worked on real-world projects?',
     answer:
-      'Yes. Muhammad Hamza is open to freelance and contract engagements in software engineering, Python backend, AI/ML integration, and web development. You can reach him via the contact section on this site or at contact@hamzax.me.',
+      'Yes. I built a QAC-based ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa, and developed AiVerse for an IELTS academy. I also work on Quizior as its main developer.',
   },
   {
-    id: 'faq-ai-projects',
-    question: 'What AI projects has Muhammad Hamza built?',
+    id: 'faq-existing-code',
+    question: 'Can you work with an existing codebase?',
     answer:
-      'Muhammad Hamza has built: Quizior (AI-powered exam platform using Gemini & Groq), an AI UI/UX Feedback System featuring 6 specialized AI agents powered by Gemini 2.5 Flash, a Terminal Chatbot supporting multiple LLM providers (Gemini, DeepSeek, Grok), and JARVIS — a personal AI assistant with a React frontend.',
+      "Yes. I can pick up an existing project, understand how it is structured, fix issues, and add features without rewriting everything. I prefer to first understand the current setup and the reason behind the requested change.",
   },
   {
     id: 'faq-location',
-    question: 'Where is Muhammad Hamza located?',
+    question: 'Where are you based, and do you work remotely?',
     answer:
-      'Muhammad Hamza is based in Peshawar, Khyber Pakhtunkhwa, Pakistan. He is available for remote work globally.',
+      "I'm based in Peshawar, Pakistan, and I'm open to remote opportunities. If a role needs on-site or hybrid work, we can discuss the location and timing.",
   },
 ];
 
@@ -65,7 +65,7 @@ const FAQSection = () => {
             <span className="text-brand-600 dark:text-brand-400">Questions</span>
           </h2>
           <p className="text-secondary">
-            Common questions about Muhammad Hamza, his work, and how to collaborate.
+            Short answers to a few things employers and clients usually want to know.
           </p>
         </Motion.div>
 
