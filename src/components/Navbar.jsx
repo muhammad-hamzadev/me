@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import logo from '../assets/hamzax-logo.png';
-import { pushPath } from '../utils/history';
+import { getCurrentPath, pushPath, replacePath, subscribeToPath } from '../utils/history';
 
 const SunIcon = () => (
     <svg className="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -30,22 +30,18 @@ const CloseIcon = () => (
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
+    const initialSection = getCurrentPath().replace(/^\//, '');
+    const [activeSection, setActiveSection] = useState(
+        ['home', 'about', 'skills', 'projects', 'faq', 'contact'].includes(initialSection)
+            ? initialSection
+            : 'home'
+    );
+    const [pathname, setPathname] = useState(getCurrentPath());
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
-        let sectionPositions = [];
-        const updatePositions = () => {
-            const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-            sectionPositions = sections.map((id) => {
-                const element = document.getElementById(id);
-                if (!element) return null;
-                return { id, top: element.offsetTop, height: element.offsetHeight };
-            }).filter(Boolean);
-        };
-
-        const timer = setTimeout(updatePositions, 500);
-        window.addEventListener('resize', updatePositions);
+        const sectionIds = ['home', 'about', 'skills', 'projects', 'faq', 'contact'];
+        const unsubscribe = subscribeToPath(setPathname);
 
         let ticking = false;
         const handleScroll = () => {
@@ -54,12 +50,22 @@ const Navbar = () => {
                     const scrollY = window.scrollY;
                     setScrolled(scrollY > 20);
 
-                    const scrollPosition = scrollY + 100;
-                    for (const section of sectionPositions) {
-                        if (scrollPosition >= section.top && scrollPosition < section.top + section.height) {
-                            setActiveSection(section.id);
+                    if (window.location.pathname.startsWith('/blog')) {
+                        ticking = false;
+                        return;
+                    }
+
+                    let visibleSection = 'home';
+                    for (const id of sectionIds) {
+                        const section = document.getElementById(id);
+                        if (section && section.getBoundingClientRect().top <= 140) {
+                            visibleSection = id;
                         }
                     }
+
+                    setActiveSection(visibleSection);
+                    setPathname(`/${visibleSection}`);
+                    replacePath(`/${visibleSection}`, false);
                     ticking = false;
                 });
                 ticking = true;
@@ -67,25 +73,28 @@ const Navbar = () => {
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+        const requestedSection = getCurrentPath().replace(/^\//, '');
+        if (!sectionIds.includes(requestedSection) || requestedSection === 'home') {
+            handleScroll();
+        }
         return () => {
-            clearTimeout(timer);
-            window.removeEventListener('resize', updatePositions);
+            unsubscribe();
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#home', isSection: true },
-        { name: 'About', href: '#about', isSection: true },
-        { name: 'Skills', href: '#skills', isSection: true },
-        { name: 'Projects', href: '#projects', isSection: true },
-        { name: 'Contact', href: '#contact', isSection: true },
+        { name: 'Home', href: '/home', sectionId: 'home' },
+        { name: 'About', href: '/about', sectionId: 'about' },
+        { name: 'Skills', href: '/skills', sectionId: 'skills' },
+        { name: 'Projects', href: '/projects', sectionId: 'projects' },
+        { name: 'FAQ', href: '/faq', sectionId: 'faq' },
+        { name: 'Contact', href: '/contact', sectionId: 'contact' },
         { name: 'Blog', href: '/blog', isSection: false },
     ];
 
-    const scrollToSection = (e, href) => {
-        e.preventDefault();
-        const element = document.querySelector(href);
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
         if (element) {
             const navbarHeight = 72;
             const elementPosition = element.getBoundingClientRect().top;
@@ -99,18 +108,15 @@ const Navbar = () => {
     };
 
     const handleNavLinkClick = (e, link) => {
-        if (link.isSection) {
-            if (window.location.pathname !== '/') {
-                pushPath('/');
-                setTimeout(() => {
-                    scrollToSection(e, link.href);
-                }, 100);
-            } else {
-                scrollToSection(e, link.href);
-            }
-        } else {
-            e.preventDefault();
+        e.preventDefault();
+        if (link.sectionId) {
             pushPath(link.href);
+            setPathname(link.href);
+            setActiveSection(link.sectionId);
+            window.setTimeout(() => scrollToSection(link.sectionId), 80);
+        } else {
+            pushPath(link.href);
+            setPathname(link.href);
         }
         setIsOpen(false);
     };
@@ -126,16 +132,15 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <a
-                        href="#home"
+                        href="/home"
                         onClick={(e) => {
-                            if (window.location.pathname !== '/') {
-                                e.preventDefault();
-                                pushPath('/');
-                            } else {
-                                scrollToSection(e, '#home');
-                            }
+                            e.preventDefault();
+                            pushPath('/home');
+                            setPathname('/home');
+                            setActiveSection('home');
+                            window.setTimeout(() => scrollToSection('home'), 80);
                         }}
-                        className="flex items-center group"
+                        className="flex items-center"
                     >
                         <img
                             src={logo}
@@ -143,7 +148,7 @@ const Navbar = () => {
                             width="56"
                             height="56"
                             decoding="async"
-                            className="w-14 h-14 object-contain group-hover:scale-110 transition-transform"
+                            className="w-14 h-14 object-contain"
                         />
                         <span className="text-2xl sm:text-3xl font-bold text-primary -ml-4">
                             amza
@@ -151,11 +156,11 @@ const Navbar = () => {
                     </a>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden md:flex items-center space-x-5 lg:space-x-7">
                         {navLinks.map((link) => {
-                            const isBlogActive = window.location.pathname.startsWith('/blog');
-                            const isActive = link.isSection
-                                ? (activeSection === link.href.substring(1) && window.location.pathname === '/')
+                            const isBlogActive = pathname.startsWith('/blog');
+                            const isActive = link.sectionId
+                                ? (activeSection === link.sectionId && !isBlogActive)
                                 : isBlogActive;
 
                             return (

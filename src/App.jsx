@@ -29,8 +29,34 @@ function App() {
         });
       }
     });
-    return unsubscribe;
+    const initialPathSync = window.setTimeout(() => {
+      setCurrentPath(getCurrentPath());
+    }, 100);
+
+    return () => {
+      window.clearTimeout(initialPathSync);
+      unsubscribe();
+    };
   }, []);
+
+  useEffect(() => {
+    const sectionId = currentPath.replace(/^\//, '');
+    const sectionRoutes = ['home', 'about', 'skills', 'projects', 'faq', 'contact'];
+
+    if (!sectionRoutes.includes(sectionId)) return;
+
+    const timer = window.setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      section.scrollIntoView({ behavior: 'auto', block: 'start' });
+      if (sectionId !== 'home') {
+        window.scrollBy({ top: -72, behavior: 'auto' });
+      }
+    }, 300);
+
+    return () => window.clearTimeout(timer);
+  }, [currentPath]);
 
   const renderContent = () => {
     let normalizedPath = currentPath;
@@ -65,11 +91,11 @@ function App() {
         <DeferredSection id="projects" minHeight="600px">
           <Projects />
         </DeferredSection>
-        <DeferredSection id="contact" minHeight="500px">
-          <Contact />
-        </DeferredSection>
         <DeferredSection id="faq" minHeight="400px">
           <FAQSection />
+        </DeferredSection>
+        <DeferredSection id="contact" minHeight="500px">
+          <Contact />
         </DeferredSection>
       </>
     );

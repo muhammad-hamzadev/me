@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import { useState } from 'react';
 
@@ -7,7 +7,7 @@ const faqs = [
     id: 'faq-who-is',
     question: 'Who is Muhammad Hamza?',
     answer:
-      'Muhammad Hamza is a Software Engineer and AI Developer from Peshawar, Pakistan. He is the Main Developer of Quizior (quizior.live), an AI-powered exam and quiz evaluation platform. He is also the Co-Founder of Solvia Codes and Co-Lead of Nexior. He studied at City University of Science and Information Technology (CUSIT), Peshawar.',
+      'Muhammad Hamza is a Software Engineer and AI Developer from Peshawar, Pakistan. He is the Main Developer of Quizior (quizior.live), the developer behind a QAC-based college ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa, and Co-Founder of Solvia Codes.',
   },
   {
     id: 'faq-quizior',
@@ -19,13 +19,13 @@ const faqs = [
     id: 'faq-skills',
     question: 'What technologies does Muhammad Hamza specialize in?',
     answer:
-      'Muhammad Hamza primarily works with Python (FastAPI, Flask) for backend, React & Vite for frontend, and AI APIs from Google Gemini and Groq. He also builds native Android apps using Kotlin, Java, and Android Studio. Additionally, he specializes in web scraping (Selenium, BeautifulSoup), test automation (PyTest, Katalon, BrowserStack), and multi-agent AI system design.',
+      'Muhammad Hamza primarily works with Python (FastAPI, Flask), PostgreSQL and MySQL for backend development, and React, Next.js, and Vite for frontend work. He also builds native Android apps using Kotlin and Android Studio, and works with web scraping, test automation, and multi-agent AI systems.',
   },
   {
     id: 'faq-freelance',
     question: 'Is Muhammad Hamza available for freelance or contract work?',
     answer:
-      'Yes. Muhammad Hamza is open to freelance and contract engagements in software engineering, Python backend, AI/ML integration, and web development. You can reach him via the contact section on this site or at hamza@hamzax.me.',
+      'Yes. Muhammad Hamza is open to freelance and contract engagements in software engineering, Python backend, AI/ML integration, and web development. You can reach him via the contact section on this site or at contact@hamzax.me.',
   },
   {
     id: 'faq-ai-projects',
@@ -48,13 +48,12 @@ const FAQSection = () => {
 
   return (
     <section
-      id="faq"
       aria-label="Frequently Asked Questions about Muhammad Hamza"
       className="py-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-3xl mx-auto">
         {/* Heading */}
-        <motion.div
+        <Motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -68,10 +67,10 @@ const FAQSection = () => {
           <p className="text-secondary">
             Common questions about Muhammad Hamza, his work, and how to collaborate.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* FAQ Items */}
-        <motion.div
+        <Motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -81,7 +80,7 @@ const FAQSection = () => {
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
             return (
-              <motion.div
+              <Motion.div
                 key={faq.id}
                 variants={staggerItem}
                 className="glass rounded-xl overflow-hidden border border-transparent hover:border-brand-500/20 transition-all"
@@ -122,10 +121,10 @@ const FAQSection = () => {
                 >
                   <p className="px-6 pb-5 text-secondary leading-relaxed">{faq.answer}</p>
                 </div>
-              </motion.div>
+              </Motion.div>
             );
           })}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

@@ -1,13 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-import heroPhotoWebp from '../assets/muhammad-hamza-profile.webp';
-import heroPhotoPng from '../assets/muhammad-hamza-profile.png';
 
 const About = () => {
     return (
-        <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary">
             <div className="max-w-7xl mx-auto">
-                <motion.div
+                <Motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -15,24 +13,24 @@ const About = () => {
                     className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
                 >
                     {/* Photo */}
-                    <motion.div variants={fadeInUp} className="flex justify-center">
-                        <div className="relative w-full max-w-[420px]">
+                    <Motion.div variants={fadeInUp} className="flex justify-center">
+                        <div className="relative w-[78vw] max-w-[300px]">
                             {/* Decorative Background Shadows */}
                             <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] rotate-6 shadow-md scale-100 translate-x-2 translate-y-2"></div>
                             <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] -rotate-6 shadow-md scale-100 -translate-x-2 -translate-y-2"></div>
                             {/* picture element: WebP for modern browsers, PNG fallback */}
                             <picture>
                                 <source
-                                    srcSet={heroPhotoWebp}
+                                    srcSet="/images/muhammadhamza.webp"
                                     type="image/webp"
                                 />
                                 <img
-                                    src={heroPhotoPng}
+                                    src="/images/muhammadhamza.jpg"
                                     alt="Muhammad Hamza - Software Engineer from Peshawar, Pakistan"
                                     fetchPriority="high"
                                     decoding="async"
-                                    width="420"
-                                    height="746"
+                                    width="450"
+                                    height="800"
                                     className="relative z-10 w-full h-auto rounded-[2rem] shadow-xl border-2 border-brand-500/20 transform-gpu"
                                     style={{
                                         imageRendering: '-webkit-optimize-contrast',
@@ -41,29 +39,29 @@ const About = () => {
                                 />
                             </picture>
                         </div>
-                    </motion.div>
+                    </Motion.div>
 
                     {/* Content */}
-                    <motion.div variants={fadeInUp}>
+                    <Motion.div variants={fadeInUp}>
                         <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
                             About <span className="text-brand-500">Me</span>
                         </h2>
-                        <div className="space-y-4 text-secondary text-md">
+                        <div className="space-y-4 text-secondary text-md leading-relaxed">
                             <p>
-                                I'm Muhammad Hamza, a Software Engineer based in Peshawar, Pakistan, with experience in Python-based development, web technologies, and software testing. I focus on building reliable, maintainable applications and automating workflows that improve efficiency and reduce manual effort. I enjoy writing clean, well-structured code and paying close attention to performance, usability, and long-term maintainability.
+                                I'm Muhammad Hamza, a software engineer based in Peshawar. I enjoy taking a rough idea, understanding the real problem behind it, and turning it into software people can actually use. My work spans full-stack web development, Python backends, Android development, automation, and practical AI integrations.
                             </p>
                             <p>
-                                I'm the Main Developer of Quizior, an AI-powered exam and quiz evaluation platform, Co-Founder at Solvia Codes, and Co-Lead at Nexior — where I work on building software products with real-world impact.
+                                Recently, I built a QAC-based college ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa. I'm also the main developer of <a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-600 dark:text-brand-400 hover:underline">Quizior</a>, and I created AiVerse for an IELTS academy to bring AI-assisted learning tools into one web platform.
                             </p>
                             <p>
-                                My current skill set includes Python development, web development, web scraping, and test automation. I have hands-on experience with tools and frameworks such as PyTest, JUnit, Katalon, and BrowserStack, along with handling structured data formats like JSON. I'm comfortable designing and testing web solutions, ensuring functionality, reliability, and cross-browser compatibility.
+                                As Co-Founder of <a href="https://www.solvia.codes" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-600 dark:text-brand-400 hover:underline">Solvia Codes</a>, I work on products from planning and system design through development, testing, and deployment. I care about straightforward user experiences, maintainable code, and making sensible technical decisions instead of adding complexity for its own sake.
                             </p>
                             <p>
-                                I also build native <strong>Android applications</strong> using Kotlin and Java, leveraging Android Studio, Jetpack components, and Firebase for backend services. Alongside this, I'm actively deepening my expertise in AI agent-based systems, advanced automation, and intelligent software — with a focus on shipping products that solve real problems.
+                                I'm currently focused on growing deeper in scalable backend systems, Next.js, PostgreSQL, and agent-based AI workflows while continuing to ship useful software for education, government, and business teams.
                             </p>
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </Motion.div>
+                </Motion.div>
             </div>
         </section>
     );

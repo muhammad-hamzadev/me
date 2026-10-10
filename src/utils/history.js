@@ -12,6 +12,15 @@ export const pushPath = (path) => {
     }
 };
 
+export const replacePath = (path, notify = true) => {
+    if (window.location.pathname !== path) {
+        window.history.replaceState(null, '', path);
+        if (notify) {
+            listeners.forEach(listener => listener(path));
+        }
+    }
+};
+
 export const subscribeToPath = (listener) => {
     listeners.add(listener);
     

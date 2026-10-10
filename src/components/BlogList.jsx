@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { blogPosts } from '../posts/posts-meta';
 import { pushPath } from '../utils/history';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
@@ -23,7 +23,7 @@ const BlogList = () => {
 
             <div className="max-w-4xl mx-auto relative z-10">
                 {/* Header Glass Banner */}
-                <motion.div
+                <Motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
@@ -49,7 +49,7 @@ const BlogList = () => {
                             Thoughts on scalable backends, multi-agent AI architectures, testing workflows, and engineering products with impact.
                         </p>
                     </div>
-                </motion.div>
+                </Motion.div>
 
                 {/* Blog Grid */}
                 {blogPosts.length === 0 ? (
@@ -57,14 +57,14 @@ const BlogList = () => {
                         <p className="text-secondary text-lg">No posts published yet. Check back soon!</p>
                     </div>
                 ) : (
-                    <motion.div
+                    <Motion.div
                         variants={staggerContainer}
                         initial="hidden"
                         animate="visible"
                         className="grid grid-cols-1 md:grid-cols-2 gap-6"
                     >
                         {blogPosts.map((post) => (
-                            <motion.article
+                            <Motion.article
                                 key={post.slug}
                                 variants={staggerItem}
                                 className="glass rounded-2xl overflow-hidden hover:border-brand-500/40 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 group flex flex-col h-full border border-card-border/30"
@@ -127,9 +127,9 @@ const BlogList = () => {
                                         </a>
                                     </div>
                                 </div>
-                            </motion.article>
+                            </Motion.article>
                         ))}
-                    </motion.div>
+                    </Motion.div>
                 )}
             </div>
         </section>

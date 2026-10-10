@@ -12,7 +12,7 @@ const SEO_CONFIG = {
   home: {
     title: 'Muhammad Hamza | Software Engineer & AI Developer | Peshawar, Pakistan',
     description:
-      'Muhammad Hamza — Software Engineer from Peshawar, Pakistan. Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior. Specializing in Python/FastAPI and AI/ML.',
+      'Muhammad Hamza - Software Engineer from Peshawar, Pakistan. Developer of HED Ranking System and Quizior, and Co-Founder at Solvia Codes.',
   },
   about: {
     title: 'About Muhammad Hamza | Software Engineer, Peshawar',
@@ -22,12 +22,12 @@ const SEO_CONFIG = {
   skills: {
     title: 'Skills | Muhammad Hamza — Software Engineer & AI Developer',
     description:
-      'Technologies and skills of Muhammad Hamza: Python, FastAPI, React, web scraping, test automation, AI/ML, and more.',
+      'Technologies and skills of Muhammad Hamza: Python, FastAPI, React, Next.js, PostgreSQL, Kotlin, automation, and practical AI integration.',
   },
   projects: {
-    title: 'Projects by Muhammad Hamza | Quizior, AI & More',
+    title: 'Projects by Muhammad Hamza | HED Ranking, AiVerse & Quizior',
     description:
-      'Explore projects by Muhammad Hamza including Quizior (AI-powered exam evaluation platform), AI UI/UX Feedback System, Terminal Chatbot, and more.',
+      'Explore Muhammad Hamza\'s work, including the HED College Ranking System, AiVerse, Quizior, and other software and AI projects.',
   },
   contact: {
     title: 'Contact Muhammad Hamza | Software Engineer, Peshawar',

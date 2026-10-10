@@ -1,6 +1,7 @@
 import { SiGithub, SiLinkedin, SiX, SiFacebook, SiInstagram } from 'react-icons/si';
 import { HiHeart } from 'react-icons/hi';
 import logo from '../assets/hamzax-logo.png';
+import { pushPath } from '../utils/history';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -44,13 +45,20 @@ const Footer = () => {
                 {/* Main Content */}
                 <div className="text-center mb-2">
                     {/* Logo/Name - Same as Navbar */}
-                    <a href="#home" className="inline-flex items-center gap-0 group mb-0">
+                    <a
+                        href="/home"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            pushPath('/home');
+                        }}
+                        className="inline-flex items-center gap-0 mb-0"
+                    >
                         <img
                             src={logo}
                             alt="Muhammad Hamza Logo"
                             width="64"
                             height="64"
-                            className="w-16 h-16 object-contain group-hover:scale-110 transition-transform"
+                            className="w-16 h-16 object-contain"
                         />
                         <span className="text-2xl font-bold text-primary -ml-4">
                             amza

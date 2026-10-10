@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muhammad Hamza - Resume</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #e5e7eb; }
+    body {
+      color: #1f2937;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.2pt;
+      line-height: 1.34;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 11mm 13mm 9mm;
+      background: #ffffff;
+    }
+    header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12mm;
+      padding-bottom: 4mm;
+      border-bottom: 2px solid #0f766e;
+    }
+    h1 {
+      margin: 0;
+      color: #111827;
+      font-size: 25pt;
+      line-height: 1;
+      letter-spacing: -0.6px;
+    }
+    .role {
+      margin-top: 2mm;
+      color: #0f766e;
+      font-size: 10.5pt;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+    .contact {
+      max-width: 88mm;
+      text-align: right;
+      color: #4b5563;
+      font-size: 8.4pt;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .summary {
+      margin: 4mm 0 3.4mm;
+      color: #374151;
+      font-size: 9.35pt;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 54mm;
+      gap: 8mm;
+      align-items: start;
+    }
+    section { margin-top: 3.6mm; }
+    h2 {
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.1mm;
+      color: #0f766e;
+      border-bottom: 1px solid #99f6e4;
+      font-size: 10.4pt;
+      line-height: 1.1;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+    }
+    .entry { margin-bottom: 3.1mm; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 5mm;
+      margin-bottom: 0.8mm;
+    }
+    h3 {
+      margin: 0;
+      color: #111827;
+      font-size: 9.7pt;
+      line-height: 1.2;
+    }
+    .meta {
+      color: #6b7280;
+      font-size: 8.1pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .submeta {
+      margin: 0.6mm 0 0;
+      color: #0f766e;
+      font-size: 8.1pt;
+      font-weight: 700;
+    }
+    ul {
+      margin: 1.2mm 0 0;
+      padding-left: 4.2mm;
+    }
+    li { margin: 0 0 0.7mm; }
+    .project-link {
+      display: inline-block;
+      margin-top: 0.5mm;
+      color: #0f766e;
+      font-size: 7.8pt;
+      font-weight: 700;
+    }
+    .skill-group { margin-bottom: 2.6mm; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group h3 { margin-bottom: 0.8mm; font-size: 8.8pt; }
+    .skill-group p { margin: 0; color: #4b5563; font-size: 8.35pt; }
+    .side-entry { margin-bottom: 2.7mm; }
+    .side-entry:last-child { margin-bottom: 0; }
+    .side-entry p { margin: 0.6mm 0 0; color: #4b5563; font-size: 8.2pt; }
+    .cert-list { margin-top: 0; padding-left: 4mm; }
+    .cert-list li { margin-bottom: 1.2mm; font-size: 8.15pt; }
+    .language-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 4mm;
+      color: #4b5563;
+      font-size: 8.4pt;
+    }
+    .muted { color: #6b7280; }
+    @media print {
+      html, body { background: #ffffff; }
+      .page { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Muhammad Hamza</h1>
+        <div class="role">Software Engineer | Full-Stack Developer</div>
+      </div>
+      <div class="contact">
+        Peshawar, Pakistan | +92 310 9950325<br>
+        <a href="mailto:contact@hamzax.me">contact@hamzax.me</a> | <a href="https://hamzax.me">hamzax.me</a><br>
+        <a href="https://www.linkedin.com/in/muhammad-hamza-deve">linkedin.com/in/muhammad-hamza-deve</a><br>
+        <a href="https://github.com/muhammad-hamzadev">github.com/muhammad-hamzadev</a>
+      </div>
+    </header>
+
+    <p class="summary">
+      Software engineering student and full-stack developer who builds practical web products for education, government, and business teams. Recently delivered a QAC-based college ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa, and an AI-assisted platform for an IELTS academy. Comfortable working across frontend, backend, databases, testing, and deployment.
+    </p>
+
+    <div class="layout">
+      <div>
+        <section>
+          <h2>Experience</h2>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Full-Stack Development Intern | DevSpire Solutions</h3>
+              <span class="meta">Nov 2025 - Jan 2026</span>
+            </div>
+            <ul>
+              <li>Developed a full-stack quiz platform with connected frontend, backend, and database workflows.</li>
+              <li>Built secure quiz flows and AI-assisted evaluation for subjective answers.</li>
+              <li>Created responsive interfaces, quiz management modules, and organization branding controls.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Selected Projects</h2>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>HED College Ranking System</h3>
+              <span class="meta">Latest</span>
+            </div>
+            <ul>
+              <li>Built a QAC-based ranking platform for the Higher Education Department, Government of Khyber Pakhtunkhwa.</li>
+              <li>Digitized the evaluation and ranking workflow for public-sector colleges across the province.</li>
+            </ul>
+            <a class="project-link" href="https://ranking.qac.hed.gkp.pk">ranking.qac.hed.gkp.pk</a>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>AiVerse | IELTS Academy Platform</h3>
+            </div>
+            <ul>
+              <li>Developed a web platform for an IELTS academy and integrated AI-assisted tools into the learning workflow.</li>
+            </ul>
+            <a class="project-link" href="https://aiverse.ehubinstitute.com">aiverse.ehubinstitute.com</a>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Quizior | AI-Powered Quiz Platform</h3>
+            </div>
+            <ul>
+              <li>Built live quizzes, real-time leaderboards, bulk question import, and AI-assisted evaluation for teachers and institutions.</li>
+              <li>Implemented multi-tenant workflows and practical controls for running and reviewing assessments.</li>
+            </ul>
+            <a class="project-link" href="https://quizior.live">quizior.live</a>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>AI UI/UX Feedback System</h3>
+            </div>
+            <ul>
+              <li>Created a Flask and MySQL design review platform with six specialized AI agents powered by Gemini.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section>
+          <h2>Skills</h2>
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <p>React, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, Bootstrap</p>
+          </div>
+          <div class="skill-group">
+            <h3>Backend and Databases</h3>
+            <p>Python, FastAPI, Flask, PHP, REST APIs, PostgreSQL, MySQL, SQLite</p>
+          </div>
+          <div class="skill-group">
+            <h3>Android</h3>
+            <p>Kotlin, Firebase</p>
+          </div>
+          <div class="skill-group">
+            <h3>Tools and QA</h3>
+            <p>Git, GitHub, Android Studio, VS Code, PyTest, Selenium, Katalon, BrowserStack, Figma</p>
+          </div>
+          <div class="skill-group">
+            <h3>Automation</h3>
+            <p>Web scraping, BeautifulSoup, Scrapy, browser automation</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="side-entry">
+            <h3>BS Software Engineering</h3>
+            <p>City University of Science and Information Technology</p>
+            <p class="muted">2023 - Present</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certifications</h2>
+          <ul class="cert-list">
+            <li>CS50's Introduction to Computer Science - Harvard, 2026</li>
+            <li>CS50's Introduction to Programming with Python - Harvard, 2024</li>
+            <li>Network Technician Career Path - Cisco NetAcad, 2025</li>
+            <li>JavaScript Essentials 1 - Cisco NetAcad, 2025</li>
+            <li>Information Security - MindLuster, 2026</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <div class="language-row"><span>English</span><span>Professional</span></div>
+          <div class="language-row"><span>Urdu</span><span>Native</span></div>
+        </section>
+
+        <section>
+          <h2>Additional</h2>
+          <div class="side-entry">
+            <h3>Co-Founder | Solvia Codes</h3>
+            <p><a href="https://www.solvia.codes">www.solvia.codes</a></p>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

@@ -2,12 +2,15 @@
 
 > Canonical Identity: Muhammad Hamza (Peshawar, Pakistan) — Software Engineer, AI Developer, and Creator of Quizior.
 
-Muhammad Hamza is a Software Engineer and AI Developer based in Peshawar, Pakistan. He is the Main Developer of Quizior (https://quizior.live), Co-Founder of Solvia Codes, and Co-Lead of Nexior.
+Muhammad Hamza is a Software Engineer and AI Developer based in Peshawar, Pakistan. He developed a QAC-based college ranking system for the Higher Education Department, Government of Khyber Pakhtunkhwa, is the Main Developer of Quizior, and is Co-Founder of Solvia Codes.
 
 ## Primary Links
 
 - [Portfolio](https://hamzax.me): Official portfolio website of Muhammad Hamza
 - [Quizior AI Exam Platform](https://quizior.live): AI-powered exam and quiz evaluation platform built by Muhammad Hamza
+- [HED College Ranking System](https://ranking.qac.hed.gkp.pk): QAC-based ranking platform for public-sector colleges in Khyber Pakhtunkhwa
+- [AiVerse](https://aiverse.ehubinstitute.com): AI-assisted web platform created for an IELTS academy
+- [Solvia Codes](https://www.solvia.codes): Software development company co-founded by Muhammad Hamza
 - [GitHub Profile](https://github.com/muhammad-hamzadev): Open source repositories, projects, and code contributions
 - [LinkedIn Profile](https://www.linkedin.com/in/muhammad-hamza-deve): Professional profile and career timeline
 - [Twitter/X Profile](https://x.com/i_hamza_06): Technical updates and thoughts
@@ -15,14 +18,16 @@ Muhammad Hamza is a Software Engineer and AI Developer based in Peshawar, Pakist
 
 ## Core Expertise & Skills
 
-- [Python & FastAPI](https://hamzax.me/#skills): Backend API architecture and microservices
-- [React & Vite](https://hamzax.me/#skills): Frontend web application development
-- [AI & Multi-Agent Systems](https://hamzax.me/#skills): Gemini, Groq, PyTorch, LangChain integration
-- [Android App Development](https://hamzax.me/#skills): Native Kotlin and Java mobile app development
-- [Web Scraping & Automation](https://hamzax.me/#skills): Selenium, BeautifulSoup, PyTest, Scrapy
+- [Python & FastAPI](https://hamzax.me/skills): Backend API architecture and development
+- [React, Next.js & Vite](https://hamzax.me/skills): Frontend web application development
+- [AI & Multi-Agent Systems](https://hamzax.me/skills): Practical AI integrations and agent-based workflows
+- [Android App Development](https://hamzax.me/skills): Native Kotlin development with Android Studio
+- [Web Scraping & Automation](https://hamzax.me/skills): Selenium, BeautifulSoup, PyTest, Scrapy
 
 ## Key Projects
 
+- [HED College Ranking System](https://ranking.qac.hed.gkp.pk): QAC-based ranking and reporting platform
+- [AiVerse](https://aiverse.ehubinstitute.com): AI-assisted IELTS academy platform
 - [Quizior](https://quizior.live): Real-time invigilation, AI subjective grading, anti-cheating platform
 - [AI UI/UX Feedback System](https://github.com/muhammad-hamzadev/UI_FEEDBACK_SYSTEM): Multi-agent design auditor powered by Gemini 2.5 Flash
 - [Terminal Chatbot](https://github.com/muhammad-hamzadev/terminal_chatbot): Interactive multi-provider LLM command-line chatbot

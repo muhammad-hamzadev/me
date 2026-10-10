@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
 import { SiWhatsapp } from 'react-icons/si';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
@@ -107,9 +107,9 @@ const Contact = () => {
     ];
 
     return (
-        <section id="contact" className="py-12 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <motion.div
+                <Motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="visible"
@@ -121,10 +121,10 @@ const Contact = () => {
                     <p className="text-secondary text-center mb-12 max-w-2xl mx-auto">
                         Have a question or want to work together? Feel free to reach out!
                     </p>
-                </motion.div>
+                </Motion.div>
 
                 {/* Contact Info Cards */}
-                <motion.div
+                <Motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -132,7 +132,7 @@ const Contact = () => {
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
                 >
                     {contactInfo.map((info) => (
-                        <motion.div
+                        <Motion.div
                             key={info.label}
                             variants={staggerItem}
                             className="glass rounded-lg p-4 flex items-start gap-3 hover:border-brand-500/30 transition-all"
@@ -155,13 +155,13 @@ const Contact = () => {
                                     <p className="text-primary font-medium">{info.value}</p>
                                 )}
                             </div>
-                        </motion.div>
+                        </Motion.div>
                     ))}
-                </motion.div>
+                </Motion.div>
 
                 {/* Centered Contact Form */}
                 <div className="max-w-2xl mx-auto">
-                    <motion.form
+                    <Motion.form
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
@@ -230,7 +230,7 @@ const Contact = () => {
 
                         {/* Status Message */}
                         {status.message && (
-                            <motion.div
+                            <Motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className={`mt-4 p-4 rounded-lg text-center font-medium ${status.type === 'success'
@@ -239,9 +239,9 @@ const Contact = () => {
                                     }`}
                             >
                                 {status.message}
-                            </motion.div>
+                            </Motion.div>
                         )}
-                    </motion.form>
+                    </Motion.form>
                 </div>
             </div>
         </section>

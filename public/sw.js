@@ -1,6 +1,6 @@
 const CACHE_NAME = 'hamzax-static-v4';
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 

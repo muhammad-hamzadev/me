@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
-import { fadeInUp, staggerContainer } from '../utils/animations';
 import { useTheme } from '../contexts/ThemeContext';
+import { pushPath } from '../utils/history';
 
+const ROLES = [
+    'Software Engineer',
+    'Python Engineer',
+    'Web Scraper',
+    'Web Developer',
+    'Android App Developer'
+];
 
 const Hero = () => {
     const { theme } = useTheme();
@@ -9,14 +16,6 @@ const Hero = () => {
     const [roleIndex, setRoleIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [charIndex, setCharIndex] = useState(0);
-
-    const roles = [
-        'Software Engineer',
-        'Python Engineer',
-        'Web Scrapper',
-        'Web Developer',
-        'Android App Developer'
-    ];
 
     const [hasStarted, setHasStarted] = useState(false);
 
@@ -28,7 +27,7 @@ const Hero = () => {
     useEffect(() => {
         if (!hasStarted) return;
         const typingSpeed = isDeleting ? 50 : 100;
-        const currentRole = roles[roleIndex];
+        const currentRole = ROLES[roleIndex];
 
         const timer = setTimeout(() => {
             if (!isDeleting && charIndex < currentRole.length) {
@@ -45,7 +44,7 @@ const Hero = () => {
             } else if (isDeleting && charIndex === 0) {
                 // Move to next role
                 setIsDeleting(false);
-                setRoleIndex(prev => (prev + 1) % roles.length);
+                setRoleIndex(prev => (prev + 1) % ROLES.length);
             }
         }, typingSpeed);
 
@@ -55,7 +54,8 @@ const Hero = () => {
     const scrollToSection = (sectionId) => {
         const element = document.querySelector(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            const top = element.getBoundingClientRect().top + window.scrollY - 72;
+            window.scrollTo({ top, behavior: 'smooth' });
         }
     };
 
@@ -84,7 +84,7 @@ const Hero = () => {
                 </h1>
 
                 <p className="text-sm sm:text-base text-muted font-medium mb-4 max-w-xl mx-auto tracking-wide text-center">
-                    Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 underline decoration-brand-500/60 underline-offset-2 hover:decoration-brand-500 font-semibold">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;Solvia Codes&nbsp;&bull;&nbsp;Co-Lead,&nbsp;Nexior
+                    Software Engineer&nbsp;&bull;&nbsp;Main Developer,&nbsp;<a href="https://quizior.live" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 underline decoration-brand-500/60 underline-offset-2 hover:decoration-brand-500 font-semibold">Quizior</a>&nbsp;&bull;&nbsp;Co-Founder,&nbsp;<a href="https://www.solvia.codes" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 underline decoration-brand-500/60 underline-offset-2 hover:decoration-brand-500 font-semibold">Solvia Codes</a>
                 </p>
 
                 <h2 className="text-2xl sm:text-3xl mb-8 h-10 flex items-center justify-center font-mono">
@@ -109,7 +109,10 @@ const Hero = () => {
                         </svg>
                     </button>
                     <button
-                        onClick={() => scrollToSection('#contact')}
+                        onClick={() => {
+                            pushPath('/contact');
+                            window.setTimeout(() => scrollToSection('#contact'), 80);
+                        }}
                         className="px-8 py-4 glass hover:bg-brand-500/10 text-primary rounded-lg font-medium transition-all hover:scale-105"
                     >
                         Get in Touch

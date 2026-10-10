@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import {
     SiReact,
+    SiNextdotjs,
     SiJavascript,
     SiHtml5,
     SiCss3,
@@ -30,7 +31,6 @@ import {
     SiAndroidstudio,
     SiFirebase
 } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa';
 import { VscCode, VscRemote, VscChecklist, VscShield } from 'react-icons/vsc';
 import { BsBootstrapFill } from 'react-icons/bs';
 import { TbApi, TbDatabase, TbAutomation, TbBrowser, TbDeviceDesktop, TbCloudSearch, TbCode } from 'react-icons/tb';
@@ -55,7 +55,7 @@ const Skills = () => {
             icon: TbDeviceDesktop
         },
         {
-            title: ['Web', 'scrapping'],
+            title: ['Web', 'scraping'],
             desc: 'I can extract data from any website accurately and fast.',
             icon: TbCloudSearch
         },
@@ -76,7 +76,7 @@ const Skills = () => {
         },
         {
             title: ['Android', 'app development'],
-            desc: 'I build native Android apps using Kotlin/Java with modern architecture.',
+            desc: 'I build native Android apps with Kotlin and modern architecture.',
             icon: SiAndroid
         }
     ];
@@ -275,6 +275,7 @@ const Skills = () => {
             title: 'Frontend Development',
             skills: [
                 { name: 'React', icon: SiReact, color: '#61DAFB' },
+                { name: 'Next.js', icon: SiNextdotjs, color: '#111827' },
                 { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
                 { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
                 { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
@@ -287,6 +288,7 @@ const Skills = () => {
             skills: [
                 { name: 'Python', icon: SiPython, color: '#3776AB' },
                 { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+                { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
                 { name: 'SQLAlchemy', icon: TbDatabase, color: '#D71F00' },
                 { name: 'SQLite3', icon: SiSqlite, color: '#003B57' },
                 { name: 'C++', icon: SiCplusplus, color: '#00599C' },
@@ -301,6 +303,7 @@ const Skills = () => {
                 { name: 'Git', icon: SiGit, color: '#F05032' },
                 { name: 'GitHub', icon: SiGithub, color: '#181717' },
                 { name: 'VS Code', icon: VscCode, color: '#007ACC' },
+                { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
                 { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
                 { name: 'BrowserStack', icon: VscRemote, color: '#3EAAAF' },
                 { name: 'Katalon', icon: VscChecklist, color: '#3AB54A' },
@@ -323,17 +326,15 @@ const Skills = () => {
             skills: [
                 { name: 'Android', icon: SiAndroid, color: '#3DDC84' },
                 { name: 'Kotlin', icon: SiKotlin, color: '#7F52FF' },
-                { name: 'Java', icon: FaJava, color: '#ED8B00' },
-                { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
                 { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
             ]
         }
     ];
 
     return (
-        <section id="skills" className="py-8 px-4 sm:px-6 lg:px-8">
+        <section className="py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <motion.div
+                <Motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="visible"
@@ -345,7 +346,7 @@ const Skills = () => {
                     <p className="text-secondary text-center mb-6 max-w-2xl mx-auto text-sm sm:text-base">
                         These are the tools and technologies I use to bring ideas to life
                     </p>
-                </motion.div>
+                </Motion.div>
 
                 {/* Infinite Draggable & Wheel Scrollable Services Section */}
                 <div
@@ -402,8 +403,8 @@ const Skills = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                    {skillCategories.map((category, categoryIndex) => (
-                        <motion.div
+                    {skillCategories.map((category) => (
+                        <Motion.div
                             key={category.title}
                             variants={staggerContainer}
                             initial="hidden"
@@ -416,9 +417,9 @@ const Skills = () => {
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                 {category.skills.map((skill) => {
-                                    const iconColor = (skill.name === 'GitHub' || skill.name === 'Express') && theme === 'dark' ? '#FFFFFF' : skill.color;
+                                    const iconColor = (skill.name === 'GitHub' || skill.name === 'Express' || skill.name === 'Next.js') && theme === 'dark' ? '#FFFFFF' : skill.color;
                                     return (
-                                        <motion.div
+                                        <Motion.div
                                             key={skill.name}
                                             variants={staggerItem}
                                             className="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-brand-500/10 transition-colors group"
@@ -432,11 +433,11 @@ const Skills = () => {
                                             <span className="text-xs sm:text-sm text-secondary text-center font-medium">
                                                 {skill.name}
                                             </span>
-                                        </motion.div>
+                                        </Motion.div>
                                     );
                                 })}
                             </div>
-                        </motion.div>
+                        </Motion.div>
                     ))}
                 </div>
             </div>

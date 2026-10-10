@@ -99,6 +99,37 @@ function generate() {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Portfolio Sections -->
+  <url>
+    <loc>https://hamzax.me/home</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://hamzax.me/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hamzax.me/skills</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hamzax.me/projects</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hamzax.me/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hamzax.me/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Blog List Page -->
   <url>
     <loc>https://hamzax.me/blog</loc>
@@ -124,9 +155,9 @@ ${posts.map(post => `  <url>
   <url>
     <loc>https://hamzax.me/</loc>
     <image:image>
-      <image:loc>https://hamzax.me/images/muhammad-hamza-profile.jpg</image:loc>
+      <image:loc>https://hamzax.me/images/muhammadhamza.jpg</image:loc>
       <image:title>Muhammad Hamza — Software Engineer from Peshawar, Pakistan</image:title>
-      <image:caption>Muhammad Hamza, Software Engineer, Main Developer of Quizior, Co-Founder at Solvia Codes, Co-Lead at Nexior.</image:caption>
+      <image:caption>Muhammad Hamza, Software Engineer, developer of the HED College Ranking System and Quizior, and Co-Founder at Solvia Codes.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hamzax.me/favicon-512x512.png</image:loc>
@@ -156,7 +187,7 @@ ${post.coverImage ? `    <image:image>
 <channel>
   <title>Muhammad Hamza's Blog</title>
   <link>https://hamzax.me/blog</link>
-  <description>Articles on software engineering, AI/ML, and building products like Quizior, JARVIS, and more — written by Muhammad Hamza.</description>
+  <description>Articles on software engineering, AI, and building products like the HED College Ranking System, AiVerse, and Quizior — written by Muhammad Hamza.</description>
   <language>en-us</language>
   <pubDate>${new Date().toUTCString()}</pubDate>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

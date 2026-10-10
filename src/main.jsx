@@ -20,3 +20,21 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+// Restore a directly opened section URL after the SPA and any static-host redirect have settled.
+const restoreInitialSection = () => {
+  const sectionId = window.location.pathname.replace(/^\//, '');
+  if (!['home', 'about', 'skills', 'projects', 'faq', 'contact'].includes(sectionId)) return;
+
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
+  section.scrollIntoView({ behavior: 'auto', block: 'start' });
+  if (sectionId !== 'home') {
+    window.scrollBy({ top: -72, behavior: 'auto' });
+  }
+};
+
+[300, 900, 1600].forEach((delay) => {
+  window.setTimeout(restoreInitialSection, delay);
+});

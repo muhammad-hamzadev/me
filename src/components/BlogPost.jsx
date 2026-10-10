@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { marked } from 'marked';
 import { blogPosts } from '../posts/posts-meta';
 import { pushPath } from '../utils/history';
@@ -40,7 +40,7 @@ const BlogPost = ({ slug }) => {
                     "url": "https://hamzax.me" 
                 },
                 "datePublished": post.date,
-                "image": post.coverImage ? `https://hamzax.me${post.coverImage}` : "https://hamzax.me/images/muhammad-hamza-profile.jpg",
+                "image": post.coverImage ? `https://hamzax.me${post.coverImage}` : "https://hamzax.me/images/muhammadhamza.jpg",
                 "publisher": { 
                     "@type": "Person", 
                     "name": "Muhammad Hamza" 
@@ -94,7 +94,7 @@ const BlogPost = ({ slug }) => {
         <section id="blog-post" className="py-24 px-4 sm:px-6 lg:px-8 bg-main min-h-screen">
             <div className="max-w-4xl mx-auto">
                 {/* Navigation Back */}
-                <motion.div
+                <Motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
@@ -108,10 +108,10 @@ const BlogPost = ({ slug }) => {
                         <HiOutlineArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-300" />
                         Back to Blog
                     </a>
-                </motion.div>
+                </Motion.div>
 
                 {/* Main Article Card */}
-                <motion.article
+                <Motion.article
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
@@ -181,10 +181,10 @@ const BlogPost = ({ slug }) => {
                             dangerouslySetInnerHTML={{ __html: rawHtml }}
                         />
                     </div>
-                </motion.article>
+                </Motion.article>
 
                 {/* Author Bio Box */}
-                <motion.div
+                <Motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
@@ -193,7 +193,7 @@ const BlogPost = ({ slug }) => {
                     {/* Tiny Avatar */}
                     <div className="w-16 h-16 rounded-full overflow-hidden border border-brand-500/20 flex-shrink-0">
                         <img
-                            src="/images/muhammad-hamza-profile.webp"
+                            src="/images/muhammadhamza.webp"
                             alt="Muhammad Hamza"
                             loading="lazy"
                             decoding="async"
@@ -216,7 +216,7 @@ const BlogPost = ({ slug }) => {
                             <a href="https://hamzax.me" className="hover:underline">Portfolio</a>
                         </div>
                     </div>
-                </motion.div>
+                </Motion.div>
             </div>
         </section>
     );

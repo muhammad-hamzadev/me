@@ -24,7 +24,8 @@ const DeferredSection = ({ children, minHeight = "350px", id }) => {
       if (ref.current) observer.observe(ref.current);
       return () => observer.disconnect();
     } else {
-      setIsVisible(true);
+      const timer = window.setTimeout(() => setIsVisible(true), 0);
+      return () => window.clearTimeout(timer);
     }
   }, [isVisible]);
 

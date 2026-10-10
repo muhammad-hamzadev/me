@@ -28,13 +28,13 @@ async function optimizeImages() {
             width: 120
         },
         {
-            file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.jpg'),
+            file: path.join(rootDir, 'public', 'images', 'muhammadhamza.jpg'),
             type: 'jpeg',
             width: 450,
             quality: 75
         },
         {
-            file: path.join(rootDir, 'public', 'images', 'muhammad-hamza-profile.webp'),
+            file: path.join(rootDir, 'public', 'images', 'muhammadhamza.webp'),
             type: 'webp',
             width: 450,
             quality: 75

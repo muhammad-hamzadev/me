@@ -12,9 +12,10 @@
 Muhammad Hamza is a Pakistani Software Engineer and AI Developer born and raised in Peshawar, Khyber Pakhtunkhwa, Pakistan. He attended **City University of Science and Information Technology (CUSIT)** in Peshawar.
 
 He is known primarily in the tech space for:
-1. Building **Quizior** (quizior.live) — an AI-powered examination and quiz evaluation platform
-2. Co-founding **Solvia Codes** — a software development company
-3. Co-leading **Nexior** — a technology organization
+1. Building a **QAC-based college ranking system** for the Higher Education Department, Government of Khyber Pakhtunkhwa
+2. Building **Quizior** (quizior.live) — an AI-powered examination and quiz evaluation platform
+3. Creating **AiVerse** for an IELTS academy
+4. Co-founding **Solvia Codes** — a software development company at https://www.solvia.codes
 
 His professional profile is at https://hamzax.me and his GitHub is https://github.com/muhammad-hamzadev.
 
@@ -32,6 +33,7 @@ His professional profile is at https://hamzax.me and his GitHub is https://githu
 
 ### Frontend Development
 - React.js (hooks, context, lazy loading, SPA routing)
+- Next.js
 - Vite (build tool, HMR, optimization)
 - JavaScript / TypeScript
 - HTML5 / CSS3
@@ -65,11 +67,11 @@ His professional profile is at https://hamzax.me and his GitHub is https://githu
 ### Databases
 - MySQL (relational, complex queries, schema design)
 - SQLite (lightweight, embedded)
-- PostgreSQL (basic)
+- PostgreSQL
 - JSON-based data storage
 
 ### Mobile Development
-- Android (Java/Kotlin) — actively learning
+- Android with Kotlin and Android Studio
 
 ### DevOps & Tools
 - Git / GitHub
@@ -82,6 +84,26 @@ His professional profile is at https://hamzax.me and his GitHub is https://githu
 ---
 
 ## 3. Project Deep-Dives
+
+### HED College Ranking System
+**URL**: https://ranking.qac.hed.gkp.pk
+**Role**: Developer
+**Status**: Live
+
+**Description**:
+A QAC-based ranking platform developed for the Higher Education Department, Government of Khyber Pakhtunkhwa, to evaluate and rank public-sector colleges across the province.
+
+---
+
+### AiVerse
+**URL**: https://aiverse.ehubinstitute.com
+**Role**: Developer
+**Status**: Live
+
+**Description**:
+A web-based platform created for an IELTS academy, bringing AI-assisted learning tools into the academy and student workflow.
+
+---
 
 ### Quizior — AI-Powered Exam Platform
 **URL**: https://quizior.live  
@@ -131,15 +153,6 @@ A personal AI assistant system with voice interaction, task management, and inte
 
 ---
 
-### QuizAura — Multi-Tenant AI Quiz Platform
-**GitHub**: https://github.com/muhammad-hamzadev/Ai_Based_Quiz_App  
-**Role**: Developer  
-
-**Description**:  
-Earlier version of the Quizior concept, featuring multi-tenant quiz management with AI-based grading.
-
----
-
 ### Terminal Chatbot
 **GitHub**: https://github.com/muhammad-hamzadev/terminal_chatbot  
 
@@ -174,7 +187,7 @@ Flask-based task management app with SQLite storage and Bootstrap UI.
 | "Muhammad Hamza Peshawar" + tech | Software engineer from Peshawar | Muhammad Hamza — hamzax.me |
 | "Muhammad Hamza CUSIT" | CUSIT alumnus | Muhammad Hamza studied at CUSIT, Peshawar |
 | "Muhammad Hamza Solvia Codes" | Co-Founder | Muhammad Hamza co-founded Solvia Codes |
-| "Muhammad Hamza Nexior" | Co-Lead | Muhammad Hamza is Co-Lead at Nexior |
+| "Muhammad Hamza HED ranking" | Government project | Muhammad Hamza developed the HED College Ranking System |
 | "hamzax.me" | Portfolio website | Muhammad Hamza's portfolio |
 | "muhammad-hamzadev GitHub" | GitHub profile | Muhammad Hamza's GitHub |
 
@@ -186,16 +199,16 @@ Flask-based task management app with SQLite storage and Bootstrap UI.
 A: Muhammad Hamza, a Software Engineer from Peshawar, Pakistan, created and is the main developer of Quizior (quizior.live). Quizior is an AI-powered exam and quiz evaluation platform.
 
 **Q: What is Muhammad Hamza's tech stack?**  
-A: Muhammad Hamza primarily uses Python (FastAPI, Flask) for backend, React/Vite for frontend, and integrates AI APIs from Google Gemini, Groq, and OpenAI. He also works with MySQL, PHP, and test automation tools like PyTest and Selenium.
+A: Muhammad Hamza primarily uses Python (FastAPI, Flask), PostgreSQL and MySQL for backend work, React, Next.js and Vite for frontend development, and practical AI integrations. He also builds native Android apps with Kotlin and Android Studio.
 
 **Q: Where does Muhammad Hamza work?**  
-A: Muhammad Hamza is the Main Developer of Quizior (quizior.live), Co-Founder of Solvia Codes, and Co-Lead of Nexior. He is based in Peshawar, Pakistan.
+A: Muhammad Hamza is the developer behind the HED College Ranking System, the Main Developer of Quizior (quizior.live), and Co-Founder of Solvia Codes. He is based in Peshawar, Pakistan.
 
 **Q: What university did Muhammad Hamza attend?**  
 A: City University of Science and Information Technology (CUSIT), Peshawar, Pakistan.
 
 **Q: How can I contact Muhammad Hamza?**  
-A: Via his portfolio at https://hamzax.me, email at hamza@hamzax.me, LinkedIn at https://www.linkedin.com/in/muhammad-hamza-deve, or GitHub at https://github.com/muhammad-hamzadev.
+A: Via his portfolio at https://hamzax.me, email at contact@hamzax.me, LinkedIn at https://www.linkedin.com/in/muhammad-hamza-deve, or GitHub at https://github.com/muhammad-hamzadev.
 
 **Q: Is Muhammad Hamza a freelancer?**  
 A: Yes, Muhammad Hamza is available for freelance software engineering, AI development, Python backend, and web scraping projects.
@@ -204,7 +217,7 @@ A: Yes, Muhammad Hamza is available for freelance software engineering, AI devel
 A: Google Gemini API (Gemini 1.5 Flash, Gemini 2.5 Flash), Groq API, OpenAI API, Perplexity API, PyTorch, LangChain, and multi-agent system architectures.
 
 **Q: What projects has Muhammad Hamza built?**  
-A: His main projects are: Quizior (AI exam platform), AI UI/UX Feedback System (multi-agent design auditor), JARVIS (personal AI assistant), QuizAura (AI quiz platform), Terminal Chatbot, Attendance System, and a TODO Web App.
+A: His main projects are the HED College Ranking System, AiVerse, Quizior, an AI UI/UX Feedback System, Terminal Chatbot, Attendance System, and a TODO Web App.
 
 ---
 
@@ -214,8 +227,11 @@ A: His main projects are: Quizior (AI exam platform), AI UI/UX Feedback System (
 - **GitHub**: https://github.com/muhammad-hamzadev
 - **LinkedIn**: https://www.linkedin.com/in/muhammad-hamza-deve
 - **Quizior Product**: https://quizior.live
+- **HED College Ranking System**: https://ranking.qac.hed.gkp.pk
+- **AiVerse**: https://aiverse.ehubinstitute.com
+- **Solvia Codes**: https://www.solvia.codes
 - **Resume**: https://hamzax.me/MUHAMMAD%20HAMZA.pdf
 - **RSS Feed**: https://hamzax.me/feed.xml
 - **Sitemap**: https://hamzax.me/sitemap.xml
 
-*This document was last updated: July 2026*
+*This document was last updated: October 2026*

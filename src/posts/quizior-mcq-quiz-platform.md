@@ -43,6 +43,6 @@ You can try Quizior at [quizior.live](https://quizior.live), and find more of my
 
 ### About the Author
 
-**Muhammad Hamza** is a Software Engineer based in Peshawar, Pakistan, and the Main Developer of Quizior. He also co-founded Solvia Codes and co-leads Nexior, working on AI-powered software products.
+**Muhammad Hamza** is a Software Engineer based in Peshawar, Pakistan, and the Main Developer of Quizior. He also co-founded [Solvia Codes](https://www.solvia.codes) and builds software products for education, government, and business teams.
 
 Connect with Muhammad Hamza: [LinkedIn](https://www.linkedin.com/in/muhammad-hamza-deve) · [GitHub](https://github.com/muhammad-hamzadev) · [X](https://x.com/i_hamza_06) · [Portfolio](https://hamzax.me)
